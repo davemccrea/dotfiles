@@ -8,16 +8,17 @@
 dnf install fish
 ```
 
-### asdf
+### base16-shell
 
-See asdf [Getting Started](https://asdf-vm.com/guide/getting-started.html#_3-install-asdf) guide.
+```
+git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+```
+
+### asdf
 
 ```
 # dependencies
 dnf install curl git
-
-# add the following to ~/.config/fish/config.fish
-source ~/.asdf/asdf.fish
 
 # configure completions
 mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
@@ -25,7 +26,7 @@ mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.
 
 Install the following using asdf:
 
-* elixir + erland
+* elixir + erlang
 * neovim
 * nodejs
 * yarn
@@ -44,4 +45,4 @@ fish_add_path ~/bin
 
 ```
 yadm clone https://github.com/davemccrea/dotfiles.git
-```
+``
