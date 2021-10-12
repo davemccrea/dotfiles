@@ -2,7 +2,6 @@
 set shell=/bin/bash
 
 let mapleader = ","
-inoremap jj <ESC>
 
 set clipboard+=unnamedplus
 
@@ -28,6 +27,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'hrsh7th/nvim-compe'
 Plug 'alvan/vim-closetag'
+Plug 'jdhao/better-escape.vim'
 
 call plug#end()
 
@@ -136,6 +136,9 @@ nnoremap <c-h> <c-w><c-h>
 " Plugin settings
 " =============================================================================
 
+let g:better_escape_shortcut = 'jj'
+let g:better_escape_interval = 200
+
 " Telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -155,7 +158,7 @@ nnoremap <silent> <expr> <C-n> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : buf
 
 lua << EOF
 require'lspconfig'.elixirls.setup{
-cmd = { "/home/david/bin/elixir-ls/language_server.sh" };
+cmd = { "/home/david/bin/elixir-ls/release/language_server.sh" };
 }
 
 require'nvim-treesitter.configs'.setup {

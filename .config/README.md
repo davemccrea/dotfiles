@@ -13,9 +13,6 @@ dnf install fish
 See asdf [Getting Started](https://asdf-vm.com/guide/getting-started.html#_3-install-asdf) guide.
 
 ```
-# dependencies
-dnf install curl git
-
 # add the following to ~/.config/fish/config.fish
 source ~/.asdf/asdf.fish
 
@@ -25,10 +22,37 @@ mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.
 
 Install the following using asdf:
 
-* elixir + erland
+* elixir + erlang
 * neovim
 * nodejs
 * yarn
+
+### vim-plug
+
+```
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+```
+
+### elixir-ls
+
+```
+cd bin
+git clone https://github.com/elixir-lsp/elixir-ls.git
+mix deps.get && mix compile
+```
+
+### treesitter for elixir
+
+`tree-sitter-cli` is required to install elixir.
+
+```
+# install using npm
+npm install -g tree-sitter-cli
+
+# then open neovim and run:
+:TSInstall elixir
+```
 
 ### yadm
 
@@ -40,8 +64,9 @@ ln -s ~/.yadm-project/yadm ~/bin/yadm
 fish_add_path ~/bin
 ```
 
-#### set up
+#### load dotfiles on exiting system
 
 ```
-yadm clone https://github.com/davemccrea/dotfiles.git
+yadm clone git@github.com:davemccrea/dotfiles.git
+yadm status
 ```
