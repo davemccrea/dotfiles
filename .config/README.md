@@ -8,9 +8,13 @@
 dnf install fish
 ```
 
-### asdf
+### base16-shell
 
-See asdf [Getting Started](https://asdf-vm.com/guide/getting-started.html#_3-install-asdf) guide.
+```
+git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+```
+
+### asdf
 
 ```
 # add the following to ~/.config/fish/config.fish

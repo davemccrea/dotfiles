@@ -28,6 +28,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'hrsh7th/nvim-compe'
 Plug 'alvan/vim-closetag'
 Plug 'jdhao/better-escape.vim'
+Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app && yarn install'}
 
 call plug#end()
 
