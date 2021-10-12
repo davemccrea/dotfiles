@@ -31,6 +31,14 @@ Install the following using asdf:
 * nodejs
 * yarn
 
+### ripgrep
+
+By default, Telescope uses ripgrep. Make sure it is installed:
+
+```
+dnf install ripgrep
+```
+
 ### vim-plug
 
 ```

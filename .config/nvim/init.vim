@@ -194,4 +194,6 @@ source = {
     treesitter = true
     }
 }
+
+require'lspconfig'.tsserver.setup{}
 EOF
