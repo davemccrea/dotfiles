@@ -52,6 +52,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 cd bin
 git clone https://github.com/elixir-lsp/elixir-ls.git
 mix deps.get && mix compile
+mix elixir_ls.release -o release
 ```
 
 ### treesitter for elixir
