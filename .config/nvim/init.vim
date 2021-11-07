@@ -18,9 +18,10 @@ call plug#begin()
 Plug 'chriskempson/base16-vim'
 
 " Utilities
-Plug 'itchyny/lightline.vim'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'scrooloose/nerdtree'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/plenary.nvim'
@@ -134,8 +135,17 @@ nnoremap <c-l> <c-w><c-l>
 nnoremap <c-h> <c-w><c-h>
 
 " =============================================================================
-" Plugin settings
+" # Plugin settings
 " =============================================================================
+
+" Lualine
+lua << END
+require'lualine'.setup {
+    options = {
+        theme = 'gruvbox'
+    }
+}
+END
 
 let g:better_escape_shortcut = 'jj'
 let g:better_escape_interval = 200
@@ -196,4 +206,6 @@ source = {
 }
 
 require'lspconfig'.tsserver.setup{}
+
+require'lspconfig'.svelte.setup{}
 EOF
