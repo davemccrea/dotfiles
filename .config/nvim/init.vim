@@ -21,7 +21,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'scrooloose/nerdtree'
-Plug 'kyazdani42/nvim-web-devicons'
+Plug 'ryanoasis/vim-devicons' " Note! Requires a patched font
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/plenary.nvim'
@@ -37,6 +37,7 @@ call plug#end()
 " # GUI settings
 " =============================================================================
 
+set encoding=utf8
 set guioptions-=T " Remove toolbar
 set vb t_vb= " No more beeps
 set backspace=2 " Backspace over newlines
