@@ -1,0 +1,66 @@
+{
+    "window.zoomLevel": 1,
+    "explorer.confirmDelete": false,
+    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "editor.formatOnSave": true,
+    "editor.fontFamily": "Dank Mono, monospace",
+    "editor.fontSize": 16,
+    "editor.fontLigatures": true,
+    "elixirLS.suggestSpecs": false,
+    "emmet.includeLanguages": {
+        "phoenix-heex": "html"
+    },
+    "tailwindCSS.includeLanguages": {
+        "elixir": "html",
+    },
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "q"
+            ],
+            "commands": [
+                ":q"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w"
+            ],
+            "commands": [
+                ":w"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "x"
+            ],
+            "commands": [
+                ":wq"
+            ]
+        }
+    ],
+    "vim.leader": ",",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    }
+}
