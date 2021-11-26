@@ -1,220 +1,151 @@
-" Fish doesn't play all that well with others
-set shell=/bin/bash
+"--------------------------------------------------------------------------
+" General settings
+"--------------------------------------------------------------------------
 
-let mapleader = ","
-
-set clipboard+=unnamedplus
-
-" =============================================================================
-" # vim-plug
-" =============================================================================
-
-set nocompatible
-filetype off
-
-call plug#begin()
-
-" Colours
-Plug 'chriskempson/base16-vim'
-
-" Utilities
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'machakann/vim-highlightedyank'
-Plug 'scrooloose/nerdtree'
-Plug 'ryanoasis/vim-devicons' " Note! Requires a patched font
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'hrsh7th/nvim-compe'
-Plug 'alvan/vim-closetag'
-Plug 'jdhao/better-escape.vim'
-Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app && yarn install'}
-
-call plug#end()
-
-" =============================================================================
-" # GUI settings
-" =============================================================================
-
-set encoding=utf8
-set guioptions-=T " Remove toolbar
-set vb t_vb= " No more beeps
-set backspace=2 " Backspace over newlines
-set nofoldenable
-set ttyfast
-set lazyredraw
-set synmaxcol=500
-set laststatus=2
-set relativenumber " Relative line numbers
-set number " Also show current absolute line
-set colorcolumn=80 " and give me a colored column
-set showcmd " Show (partial) command in status line.
-set mouse=a " Enable mouse usage (all modes) in terminals
-
-" Deal with colors
-set background=dark
-let base16colorspace=256
-colorscheme base16-gruvbox-dark-hard
-syntax on
-hi Normal ctermbg=NONE
-
-" Sane splits
-set splitright
-set splitbelow
-
-" Wrapping options
-set formatoptions=tc " wrap text and comments using textwidth
-set formatoptions+=r " continue comments when pressing ENTER in I mode
-set formatoptions+=q " enable formatting of comments with gq
-set formatoptions+=n " detect lists for formatting
-set formatoptions+=b " auto-wrap in insert mode, and do not wrap old long lines
-
-" Proper search
-set incsearch
+set expandtab
+set shiftwidth=4
+set tabstop=4
+set hidden
+set signcolumn=yes:2
+set relativenumber
+set number
+set termguicolors
+set undofile
+set spell
+set title
 set ignorecase
 set smartcase
-set gdefault
+set wildmode=longest:full,full
+set nowrap
+set list
+set listchars=tab:▸\ ,trail:·
+set mouse=a
+set scrolloff=8
+set sidescrolloff=8
+set nojoinspaces
+set splitright
+set clipboard=unnamedplus
+set confirm
+set exrc
+set backup
+set backupdir=~/.local/share/nvim/backup//
+set updatetime=300 " Reduce time for highlighting other references
+set redrawtime=10000 " Allow more time for loading syntax on large files
 
-" Spaces & tabs
-set tabstop=4       " number of visual spaces per TAB
-set softtabstop=4   " number of spaces in tab when editing
-set shiftwidth=4    " number of spaces to use for autoindent
-set expandtab       " tabs are space
-set autoindent
-set copyindent      " copy indent from the previous line
+"--------------------------------------------------------------------------
+" Key maps
+"--------------------------------------------------------------------------
 
-" Very magic by default
-nnoremap ? ?\v
-nnoremap / /\v
-cnoremap %s/ %sm/
+let mapleader = "\<space>"
 
-" =============================================================================
-" # Shortcuts
-" =============================================================================
+nmap <leader>ve :edit ~/.config/nvim/init.vim<cr>
+nmap <leader>vc :edit ~/.config/nvim/coc-settings.json<cr>
+nmap <leader>vr :source ~/.config/nvim/init.vim<cr>
 
-" Move line(s) up or dow
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
+nmap <leader>k :nohlsearch<CR>
+nmap <leader>Q :bufdo bdelete<cr>
 
-" insert blank line before current line without leaving insert mode
-imap <leader>o <c-o><s-o>
+" Allow gf to open non-existent files
+map gf :edit <cfile><cr>
 
-" fix indentation
-nnoremap <leader>i mzgg=G`z<CR>
+" Reselect visual selection after indenting
+vnoremap < <gv
+vnoremap > >gv
 
-" Quick-save and exit
-nmap <leader>w :w<CR>
-nmap <leader>q :q<CR>
-nmap <leader>x :x<CR>
+" Maintain the cursor position when yanking a visual selection
+" http://ddrscott.github.io/blog/2016/yank-without-jank/
+vnoremap y myy`y
+vnoremap Y myY`y
 
-" ; as :
-nnoremap ; :
+" When text is wrapped, move by terminal rows, not lines, unless a count is provided
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
-" Open new file adjacent to current file
-nnoremap <leader>o :e <C-R>=expand("%:p:h") . "/" <CR>
+" Paste replace visual selection without copying it
+vnoremap <leader>p "_dP
 
-" Buffers
-nnoremap <tab> :bn<CR>
-nnoremap <s-tab> :bp<CR>
-nnoremap <leader>bd :bd<CR>
+" Make Y behave like the other capitals
+nnoremap Y y$
 
-" Move by line
-nnoremap j gj
-nnoremap k gk
+" Keep it centered
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
 
-nmap <silent> <C-l> <C-l>:nohlsearch<CR>:match<CR>:diffupdate<CR>
+" Open the current file in the default program
+nmap <leader>x :!xdg-open %<cr><cr>
 
-" Split navigation
-nnoremap <c-j> <c-w><c-j>
-nnoremap <c-k> <c-w><c-k>
-nnoremap <c-l> <c-w><c-l>
-nnoremap <c-h> <c-w><c-h>
+" Quicky escape to normal mode
+imap jj <esc>
 
-" =============================================================================
-" # Plugin settings
-" =============================================================================
+" Easy insertion of a trailing ; or , from insert mode
+imap ;; <Esc>A;<Esc>
+imap ,, <Esc>A,<Esc>
 
-" Lualine
-lua << END
-require'lualine'.setup {
-    options = {
-        theme = 'gruvbox'
-    }
-}
-END
+cmap w!! %!sudo tee > /dev/null %
 
-let g:better_escape_shortcut = 'jj'
-let g:better_escape_interval = 200
+"--------------------------------------------------------------------------
+" Plugins
+"--------------------------------------------------------------------------
 
-" Telescope
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <C-p> <cmd>Telescope git_files<cr>
+" Automatically install vim-plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" Nerdtree
-let g:NERDTreeChDirMode = 2  " Change cwd to parent node
-let g:NERDTreeMinimalUI = 1  " Hide help text
-let g:NERDTreeAutoDeleteBuffer = 1
+call plug#begin(data_dir . '/plugins')
 
-" vim-closetag
-let g:closetag_filetypes = 'html,xhtml,heex'
+source ~/.config/nvim/plugins/airline.vim
+source ~/.config/nvim/plugins/arduino.vim
+source ~/.config/nvim/plugins/coc.vim
+source ~/.config/nvim/plugins/commentary.vim
+source ~/.config/nvim/plugins/context-commentstring.vim
+source ~/.config/nvim/plugins/dispatch.vim
+source ~/.config/nvim/plugins/dracula.vim
+source ~/.config/nvim/plugins/editorconfig.vim
+source ~/.config/nvim/plugins/eunuch.vim
+source ~/.config/nvim/plugins/exchange.vim
+source ~/.config/nvim/plugins/firenvim.vim
+source ~/.config/nvim/plugins/floaterm.vim
+source ~/.config/nvim/plugins/fugitive.vim
+source ~/.config/nvim/plugins/fzf.vim
+source ~/.config/nvim/plugins/heritage.vim
+source ~/.config/nvim/plugins/lastplace.vim
+source ~/.config/nvim/plugins/lion.vim
+source ~/.config/nvim/plugins/markdown-preview.vim
+source ~/.config/nvim/plugins/nerdtree.vim
+source ~/.config/nvim/plugins/pasta.vim
+source ~/.config/nvim/plugins/peekaboo.vim
+source ~/.config/nvim/plugins/phpactor.vim
+source ~/.config/nvim/plugins/polyglot.vim
+source ~/.config/nvim/plugins/projectionist.vim
+source ~/.config/nvim/plugins/quickscope.vim
+source ~/.config/nvim/plugins/repeat.vim
+source ~/.config/nvim/plugins/rooter.vim
+source ~/.config/nvim/plugins/sayonara.vim
+source ~/.config/nvim/plugins/smooth-scroll.vim
+source ~/.config/nvim/plugins/splitjoin.vim
+source ~/.config/nvim/plugins/surround.vim
+source ~/.config/nvim/plugins/targets.vim
+source ~/.config/nvim/plugins/textobj-xmlattr.vim
+source ~/.config/nvim/plugins/unimpaired.vim
+source ~/.config/nvim/plugins/vim-test.vim
+source ~/.config/nvim/plugins/visual-multi.vim
+source ~/.config/nvim/plugins/visual-star-search.vim
+source ~/.config/nvim/plugins/which-key.vim
 
-nnoremap <silent> <expr> <C-n> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
+call plug#end()
+doautocmd User PlugLoaded
 
-lua << EOF
-require('telescope').setup{
-    defaults = { 
-        file_ignore_patterns = {"deps", "_build"}
-    } 
-}
+"--------------------------------------------------------------------------
+" Miscellaneous
+"--------------------------------------------------------------------------
 
-require'lspconfig'.elixirls.setup{
-    cmd = {
-        "/home/david/bin/elixir-ls/release/language_server.sh"
-    }
-}
-
-require'nvim-treesitter.configs'.setup {
-    ensure_installed = "maintained",
-    highlight = {
-    enable = true,
-    },
-}
-
-require'compe'.setup {
-    enabled = true,
-    autocomplete = true,
-    debug = false,
-    min_length = 1,
-    preselect = "disabled",
-    throttle_time = 80,
-    source_timeout = 200,
-    incomplete_delay = 400,
-    max_abbr_width = 100,
-    max_kind_width = 100,
-    max_menu_width = 100,
-    documentation = true,
-    source = {
-        path = true,
-        buffer = true,
-        calc = true,
-        vsnip = true,
-        nvim_lsp = true,
-        nvim_lua = true,
-        spell = true,
-        tags = true,
-        treesitter = true
-    }
-}
-
-require'lspconfig'.tsserver.setup{}
-
-require'lspconfig'.svelte.setup{}
-EOF
+augroup FileTypeOverrides
+    autocmd!
+    " Use '//' instead of '/* */' comments
+    autocmd FileType php setlocal commentstring=//%s
+    autocmd TermOpen * setlocal nospell
+augroup END
