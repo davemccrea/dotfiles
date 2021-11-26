@@ -1,10 +1,8 @@
 {
-    "window.zoomLevel": 1,
     "explorer.confirmDelete": false,
-    "workbench.colorTheme": "Gruvbox Dark Hard",
     "editor.formatOnSave": true,
-    "editor.fontFamily": "Dank Mono, monospace",
-    "editor.fontSize": 16,
+    "editor.fontFamily": "SauceCodePro Nerd Font",
+    "editor.fontSize": 14,
     "editor.fontLigatures": true,
     "elixirLS.suggestSpecs": false,
     "emmet.includeLanguages": {
@@ -62,5 +60,7 @@
     "vim.handleKeys": {
         "<C-a>": false,
         "<C-f>": false
-    }
+    },
+    "workbench.colorTheme": "Dracula",
+    "window.zoomLevel": 1,
 }

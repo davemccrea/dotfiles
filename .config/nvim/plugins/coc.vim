@@ -1,8 +1,7 @@
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf'
 
-let g:python3_host_prog = '/usr/bin/python3'
-let g:python_host_prog = '/usr/bin/python'
+let g:python_host_prog = '/usr/bin/python3'
 
 let g:coc_global_extensions = [
     \ 'coc-css',

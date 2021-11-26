@@ -11,7 +11,7 @@ set relativenumber
 set number
 set termguicolors
 set undofile
-set spell
+" set spell
 set title
 set ignorecase
 set smartcase
@@ -27,8 +27,6 @@ set splitright
 set clipboard=unnamedplus
 set confirm
 set exrc
-set backup
-set backupdir=~/.local/share/nvim/backup//
 set updatetime=300 " Reduce time for highlighting other references
 set redrawtime=10000 " Allow more time for loading syntax on large files
 
@@ -75,7 +73,7 @@ nnoremap J mzJ`z
 " Open the current file in the default program
 nmap <leader>x :!xdg-open %<cr><cr>
 
-" Quicky escape to normal mode
+" Quickly escape to normal mode
 imap jj <esc>
 
 " Easy insertion of a trailing ; or , from insert mode
