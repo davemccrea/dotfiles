@@ -4,6 +4,7 @@ Plug 'antoinemadec/coc-fzf'
 let g:python_host_prog = '/usr/bin/python3'
 
 let g:coc_global_extensions = [
+    \ 'coc-svelte',
     \ 'coc-elixir',
     \ 'coc-css',
     \ 'coc-diagnostic',

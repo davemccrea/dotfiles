@@ -36,12 +36,15 @@ set redrawtime=10000 " Allow more time for loading syntax on large files
 
 let mapleader = "\<space>"
 
-nmap <leader>ve :edit ~/.config/nvim/init.vim<cr>
-nmap <leader>vc :edit ~/.config/nvim/coc-settings.json<cr>
-nmap <leader>vr :source ~/.config/nvim/init.vim<cr>
+nnoremap <leader>ve :edit ~/.config/nvim/init.vim<cr>
+nnoremap <leader>vc :edit ~/.config/nvim/coc-settings.json<cr>
 
-nmap <leader>k :nohlsearch<CR>
-nmap <leader>Q :bufdo bdelete<cr>
+nnoremap <leader>k :nohlsearch<CR>
+nnoremap <leader>Q :bufdo bdelete<cr>
+
+" Scroll buffers
+map <C-PageUp> :bp<CR>
+map <C-PageDown> :bn<CR>
 
 " Allow gf to open non-existent files
 map gf :edit <cfile><cr>
@@ -71,7 +74,10 @@ nnoremap N Nzzzv
 nnoremap J mzJ`z
 
 " Open the current file in the default program
-nmap <leader>x :!xdg-open %<cr><cr>
+nnoremap <leader>x :!xdg-open %<cr><cr>
+
+" Quickly save from normal mode
+nnoremap <leader>w :w<cr>
 
 " Quickly escape to normal mode
 imap jj <esc>
@@ -98,6 +104,7 @@ call plug#begin(data_dir . '/plugins')
 source ~/.config/nvim/plugins/airline.vim
 " source ~/.config/nvim/plugins/arduino.vim
 source ~/.config/nvim/plugins/coc.vim
+" source ~/.config/nvim/plugins/vim-mix-format.vim
 source ~/.config/nvim/plugins/commentary.vim
 source ~/.config/nvim/plugins/context-commentstring.vim
 " source ~/.config/nvim/plugins/dispatch.vim
@@ -116,8 +123,7 @@ source ~/.config/nvim/plugins/markdown-preview.vim
 source ~/.config/nvim/plugins/nerdtree.vim
 " source ~/.config/nvim/plugins/pasta.vim
 source ~/.config/nvim/plugins/peekaboo.vim
-" source ~/.config/nvim/plugins/phpactor.vim
-" source ~/.config/nvim/plugins/polyglot.vim
+source ~/.config/nvim/plugins/polyglot.vim
 " source ~/.config/nvim/plugins/projectionist.vim
 source ~/.config/nvim/plugins/repeat.vim
 source ~/.config/nvim/plugins/rooter.vim

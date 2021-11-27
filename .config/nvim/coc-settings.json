@@ -1,6 +1,7 @@
 {
     "coc.preferences.extensionUpdateCheck": "daily",
     "coc.preferences.formatOnType": true,
+    "coc.preferences.formatOnSaveFiletypes": ["html", "elixir"],
     "diagnostic.checkCurrentLine": true,
     "diagnostic.virtualText": true,
     "diagnostic.enableMessage": "jump",
@@ -16,5 +17,7 @@
     "git.topRemovedSign.text": "▔",
     "git.changeRemovedSign.text": "▔",
     "tailwindCSS.validate": true,
-    "tailwindCSS.emmetCompletions": true
+    "tailwindCSS.emmetCompletions": true,
+    "elixir.pathToElixirLS": "~/bin/elixir-ls/language_server.sh",
+    "elixirLS.dialyzerEnabled": true
 }

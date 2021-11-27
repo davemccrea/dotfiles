@@ -5,61 +5,12 @@
     "editor.fontSize": 14,
     "editor.fontLigatures": true,
     "elixirLS.suggestSpecs": false,
+    "elixirLS.dialyzerEnabled": true,
     "emmet.includeLanguages": {
         "phoenix-heex": "html"
     },
     "tailwindCSS.includeLanguages": {
         "elixir": "html",
-    },
-    "vim.easymotion": true,
-    "vim.incsearch": true,
-    "vim.useSystemClipboard": true,
-    "vim.useCtrlKeys": true,
-    "vim.hlsearch": true,
-    "vim.insertModeKeyBindings": [
-        {
-            "before": [
-                "j",
-                "j"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        }
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "<leader>",
-                "q"
-            ],
-            "commands": [
-                ":q"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "w"
-            ],
-            "commands": [
-                ":w"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "x"
-            ],
-            "commands": [
-                ":wq"
-            ]
-        }
-    ],
-    "vim.leader": ",",
-    "vim.handleKeys": {
-        "<C-a>": false,
-        "<C-f>": false
     },
     "workbench.colorTheme": "Dracula",
     "window.zoomLevel": 1,
