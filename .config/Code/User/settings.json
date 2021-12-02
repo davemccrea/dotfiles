@@ -14,4 +14,5 @@
     },
     "workbench.colorTheme": "Dracula",
     "window.zoomLevel": 1,
+    "workbench.startupEditor": "none",
 }
