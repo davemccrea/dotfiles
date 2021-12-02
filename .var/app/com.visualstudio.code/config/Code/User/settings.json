@@ -1,0 +1,18 @@
+{
+    "explorer.confirmDelete": false,
+    "editor.formatOnSave": true,
+    "editor.fontFamily": "SauceCodePro Nerd Font",
+    "editor.fontSize": 14,
+    "editor.fontLigatures": true,
+    "elixirLS.suggestSpecs": false,
+    "elixirLS.dialyzerEnabled": true,
+    "emmet.includeLanguages": {
+        "phoenix-heex": "html"
+    },
+    "tailwindCSS.includeLanguages": {
+        "elixir": "html",
+    },
+    "workbench.colorTheme": "Dracula",
+    "window.zoomLevel": 1,
+    "workbench.startupEditor": "none",
+}
