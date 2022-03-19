@@ -1,9 +1,9 @@
 {
     "explorer.confirmDelete": false,
     "editor.formatOnSave": true,
-    "editor.fontFamily": "SauceCodePro Nerd Font",
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
     "editor.fontSize": 14,
-    "editor.fontLigatures": true,
+    "editor.fontLigatures": false,
     "elixirLS.suggestSpecs": false,
     "elixirLS.dialyzerEnabled": true,
     "emmet.includeLanguages": {
@@ -13,7 +13,6 @@
         "elixir": "html",
         "svelte": "html",
     },
-    "workbench.colorTheme": "Dracula",
     "window.zoomLevel": 1,
     "workbench.startupEditor": "none",
     "svelte.enable-ts-plugin": true,
@@ -26,5 +25,6 @@
     "[svelte]": {
         "editor.defaultFormatter": "svelte.svelte-vscode"
     },
-    "elixir.credo.lintEverything": true
+    "elixir.credo.lintEverything": true,
+    "workbench.colorTheme": "Monokai Pro (Filter Octagon)"
 }
