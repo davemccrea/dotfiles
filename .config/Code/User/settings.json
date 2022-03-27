@@ -1,8 +1,9 @@
 {
     "explorer.confirmDelete": false,
     "editor.formatOnSave": true,
-    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.fontFamily": "FiraCode Nerd Font",
     "editor.fontSize": 14,
+    "editor.fontWeight": "normal",
     "editor.fontLigatures": false,
     "elixirLS.suggestSpecs": false,
     "elixirLS.dialyzerEnabled": true,
@@ -13,7 +14,6 @@
         "elixir": "html",
         "svelte": "html",
     },
-    "window.zoomLevel": 1,
     "workbench.startupEditor": "none",
     "svelte.enable-ts-plugin": true,
     "explorer.confirmDragAndDrop": false,
@@ -26,5 +26,8 @@
         "editor.defaultFormatter": "svelte.svelte-vscode"
     },
     "elixir.credo.lintEverything": true,
-    "workbench.colorTheme": "Monokai Pro (Filter Octagon)"
+    "workbench.colorTheme": "Monokai Pro (Filter Octagon)",
+    "workbench.iconTheme": "Monokai Pro (Filter Octagon) Icons",
+    "window.zoomLevel": 1,
+    "editor.inlineSuggest.enabled": true
 }
