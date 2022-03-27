@@ -1,7 +1,7 @@
 {
     "explorer.confirmDelete": false,
     "editor.formatOnSave": true,
-    "editor.fontFamily": "SauceCodePro Nerd Font",
+    "editor.fontFamily": "FiraCode Nerd Font",
     "editor.fontSize": 14,
     "editor.fontLigatures": true,
     "elixirLS.suggestSpecs": false,
