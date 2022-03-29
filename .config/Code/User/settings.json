@@ -2,7 +2,7 @@
     "explorer.confirmDelete": false,
     "editor.formatOnSave": true,
     "editor.fontFamily": "FiraCode Nerd Font",
-    "editor.fontSize": 14,
+    "editor.fontSize": 15,
     "editor.fontLigatures": true,
     "elixirLS.suggestSpecs": false,
     "elixirLS.dialyzerEnabled": true,
@@ -26,5 +26,8 @@
     "[svelte]": {
         "editor.defaultFormatter": "svelte.svelte-vscode"
     },
-    "elixir.credo.lintEverything": true
+    "elixir.credo.lintEverything": true,
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
