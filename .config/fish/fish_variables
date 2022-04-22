@@ -1,6 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR __fish_initialized:3100
+SETUVAR __fish_initialized:3400
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:/home/david/\x2econfig/fish/functions/fisher\x2efish\x1e/home/david/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_jorgebucaran_2F_hydro_files:/home/david/\x2econfig/fish/functions/fish_mode_prompt\x2efish\x1e/home/david/\x2econfig/fish/functions/fish_prompt\x2efish\x1e/home/david/\x2econfig/fish/functions/fish_title\x2efish\x1e/home/david/\x2econfig/fish/conf\x2ed/hydro\x2efish
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejorgebucaran/hydro
@@ -10,9 +10,13 @@ SETUVAR _hydro_git_16121:main\x20
 SETUVAR _hydro_git_171131:main\x20
 SETUVAR _hydro_git_184788:master\u2022\x20
 SETUVAR _hydro_git_255752:main\u2022\x20
+SETUVAR _hydro_git_46099:main\u2022\x20
+SETUVAR _hydro_git_48596:main\u2022\x20
 SETUVAR _hydro_git_54370:add\x2dtailwind\u2022\x20
+SETUVAR _hydro_git_56238:main\u2022\x20\u21914\x20
 SETUVAR _hydro_git_56606:\x1d
 SETUVAR _hydro_git_5736:main\u2022\x20
+SETUVAR _hydro_git_67455:main\u2022\x20\u21914\x20
 SETUVAR _hydro_git_7194:main\x20
 SETUVAR _hydro_git_92238:main\u2022\x20
 SETUVAR fish_color_autosuggestion:BD93F9
@@ -43,4 +47,5 @@ SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_pager_color_selected_background:\x2dr
 SETUVAR fish_user_paths:/home/david/bin/flutter/bin\x1e/home/david/\x2elocal/bin\x1e/home/david/bin
