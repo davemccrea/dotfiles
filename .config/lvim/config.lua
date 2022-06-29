@@ -15,6 +15,7 @@ lvim.colorscheme = "base16-gruvbox-dark-hard"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
+vim.o.relativenumber = true;
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
@@ -77,6 +78,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "java",
   "yaml",
+  "toml"
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -145,7 +147,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- Additional Plugins
 lvim.plugins = {
-  { "RRethy/nvim-base16" },
+  { "chriskempson/base16-vim" },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
