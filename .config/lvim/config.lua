@@ -12,6 +12,7 @@ an executable
 lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "gruvbox"
+vim.o.relativenumber = true
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -77,6 +78,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "java",
   "yaml",
+  "elixir"
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -160,11 +162,25 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- Additional Plugins
 lvim.plugins = {
   { "ellisonleao/gruvbox.nvim" },
-  --     {
-  --       "folke/trouble.nvim",
-  --       cmd = "TroubleToggle",
-  --     },
 }
+
+require 'lspconfig'.elixirls.setup {
+  cmd = { "/home/david/bin/elixir-ls/language_server.sh" };
+}
+
+require("gruvbox").setup({
+  undercurl = true,
+  underline = true,
+  bold = true,
+  italic = true, -- will make italic comments and special strings
+  inverse = true, -- invert background for search, diffs, statuslines and errors
+  invert_selection = false,
+  invert_signs = false,
+  invert_tabline = false,
+  invert_intend_guides = false,
+  contrast = "hard", -- can be "hard" or "soft"
+  overrides = {},
+})
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
