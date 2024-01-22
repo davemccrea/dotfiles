@@ -5,7 +5,7 @@ set -x EDITOR nvim
 set PATH ~/.local/bin $PATH
 
 source /opt/asdf/asdf.fish
-zoxide init fish --cmd j | source
+zoxide init fish --cmd cd | source
 
 alias vi="nvim"
 alias vim="nvim"
