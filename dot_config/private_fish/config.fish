@@ -8,4 +8,3 @@ set PATH ~/.local/bin $PATH
 
 alias vi="nvim"
 alias vim="nvim"
-alias cc="z"
