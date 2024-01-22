@@ -1,5 +1,5 @@
 source /opt/asdf/asdf.fish
-zoxide init fish | source
+zoxide init fish --cmd j | source
 
 set -g fish_greeting
 set -x ASDF_DATA_DIR /opt/asdf
