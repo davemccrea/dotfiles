@@ -1,10 +1,10 @@
 set -g fish_greeting
-set -x _ZO_DATA_DIR /var/home/david/.local/share
 set -x ASDF_DATA_DIR /opt/asdf
 set -x EDITOR nvim
-set PATH ~/.local/bin $PATH
 
 source /opt/asdf/asdf.fish
+
+set -x _ZO_DATA_DIR /var/home/david/.local/share
 zoxide init fish --cmd cdd | source
 
 alias vi="nvim"
