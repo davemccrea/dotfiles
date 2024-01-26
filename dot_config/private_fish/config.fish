@@ -5,7 +5,7 @@ set -x EDITOR nvim
 source /opt/asdf/asdf.fish
 
 set -x _ZO_DATA_DIR /var/home/david/.local/share
-zoxide init fish --cmd z | source
+zoxide init fish | source
 
 alias vi="nvim"
 alias vim="nvim"
