@@ -9,5 +9,4 @@ zoxide init fish --cmd cdd | source
 
 alias vi="nvim"
 alias vim="nvim"
-alias cdd="z"
-alias h="distrobox-host-exec"
+alias cdd="cd /var/home/david"
