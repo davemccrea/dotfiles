@@ -2,6 +2,8 @@ set -g fish_greeting
 set -x ASDF_DATA_DIR /opt/asdf
 set -x EDITOR nvim
 
+fish_add_path ~/.composer/vendor/bin
+
 source /opt/asdf/asdf.fish
 
 set -x _ZO_DATA_DIR /var/home/david/.local/share
