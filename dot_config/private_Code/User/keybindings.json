@@ -1,0 +1,18 @@
+[
+  {
+    "key": "ctrl+e",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "ctrl+b",
+    "command": "-workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "ctrl+k a",
+    "command": "tailwind-fold.toggleAutoFold"
+  },
+  {
+    "key": "ctrl+alt+a",
+    "command": "-tailwind-fold.toggleAutoFold"
+  }
+]
