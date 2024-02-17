@@ -4,7 +4,7 @@ set -x EDITOR nvim
 
 fish_add_path ~/.composer/vendor/bin
 
-source /opt/asdf/asdf.fish
+source ~/.asdf/asdf.fish
 
 set -x _ZO_DATA_DIR /var/home/david/.local/share
 zoxide init fish | source
