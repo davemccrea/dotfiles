@@ -1,0 +1,122 @@
+{
+  "[elixir]": {
+    "editor.formatOnSave": false
+  },
+  "dev.containers.dockerPath": "/var/home/david/.local/bin/podman-host",
+  "editor.cursorBlinking": "solid",
+  "editor.fontFamily": "'JetBrainsMono Nerd Font', monospace",
+  "editor.fontWeight": 500,
+  "editor.fontLigatures": false,
+  "editor.formatOnSave": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.lineNumbers": "relative",
+  "editor.minimap.enabled": false,
+  "editor.minimap.renderCharacters": false,
+  "editor.renderWhitespace": "none",
+  "emmet.includeLanguages": {
+    "phoenix-heex": "html"
+  },
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "extensions.ignoreRecommendations": true,
+  "files.associations": {
+    "*.css": "tailwindcss",
+    "*.heex": "phoenix-heex",
+    "*.livemd": "markdown"
+  },
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "tailwind-fold.autoFold": false,
+  "tailwind-fold.foldStyle": "QUOTES",
+  "tailwind-fold.showTailwindImage": false,
+  "tailwind-fold.supportedLanguages": [
+    "html",
+    "typescript",
+    "javascript",
+    "elixir"
+  ],
+  "tailwind-fold.unfoldIfLineSelected": true,
+  "tailwindCSS.colorDecorators": false,
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.includeLanguages": {
+    "elixir": "html",
+    "heex": "html",
+    "phoenix-heex": "html"
+  },
+  "vim.cursorStylePerMode.insert": "block",
+  "vim.cursorStylePerMode.normal": "block",
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.leader": "<space>",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "after": ["\"", "_", "D"],
+      "before": ["D"]
+    },
+    {
+      "after": ["\"", "_", "d"],
+      "before": ["d"]
+    },
+    {
+      "after": ["\"", "_", "d", "d"],
+      "before": ["d", "d"]
+    },
+    {
+      "after": ["\"", "_", "c"],
+      "before": ["c"]
+    },
+    {
+      "after": ["\"", "_", "C"],
+      "before": ["C"]
+    },
+    {
+      "after": ["\"", "_", "c", "c"],
+      "before": ["c", "c"]
+    },
+    {
+      "after": ["\"", "_", "x"],
+      "before": ["x"]
+    },
+    {
+      "after": ["\"", "_", "X"],
+      "before": ["X"]
+    },
+    {
+      "after": ["d"],
+      "before": ["m"]
+    },
+    {
+      "after": ["d", "d"],
+      "before": ["m", "m"]
+    }
+  ],
+  "vim.useCtrlKeys": false,
+  "vim.useSystemClipboard": true,
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "after": ["\"", "_", "d"],
+      "before": ["d"]
+    },
+    {
+      "after": ["\"", "_", "c"],
+      "before": ["c"]
+    },
+    {
+      "after": ["\"", "_", "x"],
+      "before": ["x"]
+    },
+    {
+      "after": ["d"],
+      "before": ["m"]
+    }
+  ],
+  "window.titleBarStyle": "custom",
+  "workbench.colorTheme": "poimandres",
+  "workbench.startupEditor": "none",
+  "git.ignoreRebaseWarning": true,
+  "terminal.integrated.defaultProfile.linux": "fish",
+  "[php]": {
+    "editor.defaultFormatter": "mansoorkhan96.php-cs-fixer"
+  },
+}
