@@ -3,6 +3,8 @@
     "editor.formatOnSave": false
   },
   "dev.containers.dockerPath": "/var/home/david/.local/bin/podman-host",
+  "elixir-tools.nextLS.enable": true,
+  "elixir-tools.nextLS.experimental.completions.enable": true,
   "editor.cursorBlinking": "solid",
   "editor.fontFamily": "'JetBrainsMono Nerd Font', monospace",
   "editor.fontWeight": 500,
