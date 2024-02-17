@@ -1,5 +1,5 @@
 set -g fish_greeting
-set -x ASDF_DATA_DIR ~/.asdf
+#set -x ASDF_DATA_DIR ~/.asdf
 set -x EDITOR nvim
 
 fish_add_path ~/.composer/vendor/bin
