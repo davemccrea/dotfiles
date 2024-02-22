@@ -1,5 +1,0 @@
-0000000000000000000000000000000000000000 1915cea32e13fcb4191904de8f5e0252ad050a6e David McCrea <git@dmccrea.me> 1700823876 +0200	clone: from https://github.com/nvim-lua/kickstart.nvim.git
-1915cea32e13fcb4191904de8f5e0252ad050a6e ee6b0b602f94695709a6aeaa0f33a304fc11f86b David McCrea <git@dmccrea.me> 1708594250 +0200	commit: custom
-ee6b0b602f94695709a6aeaa0f33a304fc11f86b 7af594fd319fbae6b2aaa06337f3df8acbbb7f18 David McCrea <git@dmccrea.me> 1708594258 +0200	pull --tags origin master (start): checkout 7af594fd319fbae6b2aaa06337f3df8acbbb7f18
-7af594fd319fbae6b2aaa06337f3df8acbbb7f18 f608552dccbb209a4a309f0e5fbddf6c0a1f10b6 David McCrea <git@dmccrea.me> 1708594631 +0200	rebase (continue): custom
-f608552dccbb209a4a309f0e5fbddf6c0a1f10b6 f608552dccbb209a4a309f0e5fbddf6c0a1f10b6 David McCrea <git@dmccrea.me> 1708594631 +0200	rebase (finish): returning to refs/heads/master
