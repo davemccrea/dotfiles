@@ -2,7 +2,7 @@ theme = "rose_pine"
 
 [editor]
 line-number = "relative"
-mouse = true
+mouse = false
 scrolloff = 999
 
 [editor.cursor-shape]
