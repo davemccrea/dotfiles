@@ -3,7 +3,7 @@ set -g fish_greeting
 set -x EDITOR nvim
 
 fish_add_path ~/.composer/vendor/bin
-fish_add_path ~/.local/bin/elixir-ls/elixir-ls
+fish_add_path ~/.local/bin/elixir-ls
 
 source ~/.asdf/asdf.fish
 
