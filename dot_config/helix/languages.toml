@@ -1,11 +1,15 @@
+[language-server.tailwind-heex]
+command = "tailwindcss-language-server"
+args = ["--stdio"]
+
 [[language]]
 name = "elixir"
-scope = "source.elixir"
-injection-regex = "(elixir|ex)"
-file-types = ["ex", "exs", "heex"]
-shebangs = ["elixir"]
-roots = ["mix.exs"]
+language-id = "phoenix-heex"
+language-servers = ["tailwind-heex", "elixir-ls"]
 auto-format = true
-diagnostic-severity = "Hint"
-comment-token = "#"
-indent = {tab-width = 2, unit = " "}
+
+[[language]]
+name = "heex"
+language-id = "phoenix-heex"
+language-servers = ["tailwind-heex", "elixir-ls"]
+auto-format = true
