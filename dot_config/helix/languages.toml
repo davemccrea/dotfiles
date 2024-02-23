@@ -9,4 +9,3 @@ auto-format = true
 diagnostic-severity = "Hint"
 comment-token = "#"
 indent = {tab-width = 2, unit = " "}
-config = { elixirLS.dialyzerEnabled = false }
