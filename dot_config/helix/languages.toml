@@ -5,11 +5,12 @@ args = ["--stdio"]
 [[language]]
 name = "elixir"
 language-id = "phoenix-heex"
-language-servers = ["tailwind-heex", "elixir-ls"]
+language-servers = ["tailwind-heex", "elixir-ls", "vscode-html-language-server"]
 auto-format = true
 
 [[language]]
 name = "heex"
-language-id = "phoenix-heex"
-language-servers = ["tailwind-heex", "elixir-ls"]
+language-id= "phoenix-heex"
+language-servers = ["tailwind-heex", "elixir-ls", "vscode-html-language-server"]
+comment-token = "<%!--"
 auto-format = true
