@@ -655,7 +655,6 @@ require("lazy").setup({
 		-- change the command in the config to whatever the name of that colorscheme is
 		--
 		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
-{
   'olivercederborg/poimandres.nvim',
   lazy = false,
   priority = 1000,
