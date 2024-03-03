@@ -655,18 +655,24 @@ require("lazy").setup({
 		-- change the command in the config to whatever the name of that colorscheme is
 		--
 		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
-		"olivercederborg/poimandres.nvim",
-		lazy = false, -- make sure we load this during startup if it is your main colorscheme
-		priority = 1000, -- make sure to load this before all the other start plugins
-		config = function()
-			require("poimandres").setup({})
-			-- Load the colorscheme here
-			vim.cmd.colorscheme("rose-pine")
+{
+  'olivercederborg/poimandres.nvim',
+  lazy = false,
+  priority = 1000,
+  config = function()
+    require('poimandres').setup {
+      -- leave this setup function empty for default config
+      -- or refer to the configuration section
+      -- for configuration options
+    }
+  end,
 
-			-- You can configure highlights by doing something like
-			vim.cmd.hi("Comment gui=none")
-		end,
-	},
+  -- optionally set the colorscheme within lazy config
+  init = function()
+    vim.cmd("colorscheme poimandres")
+  end
+},
+
 
 	-- Highlight todo, notes, etc in comments
 	{ "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = { signs = false } },
