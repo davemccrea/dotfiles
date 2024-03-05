@@ -4,7 +4,6 @@ return {
     version = '*',
     config = function()
       require('toggleterm').setup {
-        shell = vim.opt.shell,
         direction = 'float',
       }
 
