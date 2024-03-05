@@ -14,6 +14,6 @@ source ~/.asdf/asdf.fish
 set -x _ZO_DATA_DIR /var/home/david/.local/share
 zoxide init fish | source
 
-alias vi="nvim"
-alias vim="nvim"
+alias v="nvim"
+alias lg="lazygit"
 alias cdd="cd /var/home/david"
