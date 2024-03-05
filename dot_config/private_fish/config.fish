@@ -15,5 +15,5 @@ set -x _ZO_DATA_DIR /var/home/david/.local/share
 zoxide init fish | source
 
 alias v="nvim"
-alias lg="lazygit"
+alias g="lazygit"
 alias cdd="cd /var/home/david"
