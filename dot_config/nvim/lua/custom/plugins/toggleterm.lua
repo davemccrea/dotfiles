@@ -10,11 +10,11 @@ return {
       local Terminal = require('toggleterm.terminal').Terminal
       local lazygit = Terminal:new { cmd = 'lazygit', hidden = true }
 
-      function _lazygit_toggle()
+      function Lazygit_toggle()
         lazygit:toggle()
       end
 
-      vim.api.nvim_set_keymap('n', '<leader>g', '<cmd>lua _lazygit_toggle()<CR>', { noremap = true, silent = true })
+      vim.keymap.set('n', '<leader>g', '<cmd>lua Lazygit_toggle()<CR>', { desc = 'Open Lazy[G]it in a floating terminal', noremap = true, silent = true })
     end,
   },
 }
