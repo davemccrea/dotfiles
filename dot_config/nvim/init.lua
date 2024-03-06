@@ -655,11 +655,11 @@ require("lazy").setup({
 		-- change the command in the config to whatever the name of that colorscheme is
 		--
 		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
-		"olivercederborg/poimandres.nvim",
+		"rose-pine/neovim",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("poimandres").setup({
+			require("rose-pine/neovim").setup({
 				-- leave this setup function empty for default config
 				-- or refer to the configuration section
 				-- for configuration options
