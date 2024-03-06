@@ -656,7 +656,7 @@ require("lazy").setup({
 		--
 		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
 		"rose-pine/neovim",
-		name = "rose-pine",
+		name = "rose-pine-custom",
 		lazy = false,
 		priority = 1000,
 		config = function()
@@ -672,7 +672,7 @@ require("lazy").setup({
 
 		-- optionally set the colorscheme within lazy config
 		init = function()
-			vim.cmd("colorscheme rose-pine")
+			vim.cmd("colorscheme rose-pine-custom")
 		end,
 	},
 
