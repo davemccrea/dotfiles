@@ -665,7 +665,7 @@ require("lazy").setup({
 				extend_background_behind_borders = true,
 				styles = {
 					bold = true,
-					italics = true,
+					italics = false,
 				},
 			})
 		end,
