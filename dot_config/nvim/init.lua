@@ -656,19 +656,23 @@ require("lazy").setup({
 		--
 		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
 		"rose-pine/neovim",
+		name = "rose-pine",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("rose-pine/neovim").setup({
-				-- leave this setup function empty for default config
-				-- or refer to the configuration section
-				-- for configuration options
+			require("rose-pine").setup({
+				varitant = "moon",
+				extend_background_behind_borders = true,
+				styles = {
+					bold = true,
+					italics = true,
+				},
 			})
 		end,
 
 		-- optionally set the colorscheme within lazy config
 		init = function()
-			vim.cmd("colorscheme poimandres")
+			vim.cmd("colorscheme rose-pine")
 		end,
 	},
 
