@@ -670,6 +670,9 @@ require('lazy').setup({
     init = function()
       require('rose-pine').setup {
         variant = 'moon',
+        styles = {
+          transparency = true,
+        },
       }
 
       -- Load the colorscheme here.
