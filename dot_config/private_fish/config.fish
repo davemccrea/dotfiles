@@ -17,3 +17,4 @@ zoxide init fish | source
 alias vi="nvim"
 alias g="lazygit"
 alias cdd="cd /var/home/david"
+alias code="code --enable-features=UseOzonePlatform --ozone-platform=wayland"
