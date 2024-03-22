@@ -2,6 +2,8 @@ set -g fish_greeting
 #set -x ASDF_DATA_DIR ~/.asdf
 set -x EDITOR nvim
 
+fish_config theme choose "Rosé Pine"
+
 fish_add_path ~/.composer/vendor/bin
 fish_add_path ~/.local/bin
 fish_add_path ~/.local/bin/elixir-ls
