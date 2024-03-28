@@ -12,6 +12,7 @@ fish_add_path /usr/local/go/bin
 fish_add_path ~/.cargo/bin
 
 source ~/.asdf/asdf.fish
+source ~/.cargo/env.fish
 
 set -x _ZO_DATA_DIR /var/home/david/.local/share
 zoxide init fish | source
