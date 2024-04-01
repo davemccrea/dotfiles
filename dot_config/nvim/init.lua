@@ -699,6 +699,11 @@ require("lazy").setup({
 		opts = { signs = false },
 	},
 
+	{
+		"folke/zen-mode.nvim",
+		opts = {},
+	},
+
 	{ -- Collection of various small independent plugins/modules
 		"echasnovski/mini.nvim",
 		config = function()
