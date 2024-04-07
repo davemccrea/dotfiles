@@ -1,3 +1,6 @@
+set ostree_version (grep OSTREE_VERSION /etc/os-release | awk -F= '{print $2}' | sed "s/'//g")
+echo "OSTree version: $ostree_version"
+
 set -g fish_greeting
 #set -x ASDF_DATA_DIR ~/.asdf
 set -x EDITOR nvim
