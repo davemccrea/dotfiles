@@ -1,3 +1,5 @@
+set -x OS_VERSION (grep OSTREE_VERSION /etc/os-release | awk -F= '{print $2}' | sed "s/'//g")
+
 set -g fish_greeting
 #set -x ASDF_DATA_DIR ~/.asdf
 set -x EDITOR nvim
