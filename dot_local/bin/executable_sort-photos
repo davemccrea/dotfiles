@@ -1,10 +1,8 @@
 #!/bin/bash
 
-cd /var/home/david/.local/share/PictureSort/Output
-
 exiftool -r -P \
 	'-FileName<$CreateDate/${CreateDate#;DateFmt("%Y-%m-%d_%H%M%S")}%-c.%e' \
 	'-FileName<$DateTimeOriginal/${DateTimeOriginal#;DateFmt("%Y-%m-%d_%H%M%S")}%-c.%e' \
 	'-FileName<$CreateDate/${CreateDate#;DateFmt("%Y-%m-%d_%H%M%S")}_${model}%-c.%e' \
 	'-FileName<$DateTimeOriginal/${DateTimeOriginal#;DateFmt("%Y-%m-%d_%H%M%S")}_${model}%-c.%e' \
-	-d '%Y/%m' /var/home/david/.local/share/PictureSort/Input
+	-d '%Y/%m' $1
