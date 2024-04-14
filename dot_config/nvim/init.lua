@@ -744,6 +744,22 @@ require("lazy").setup({
 		end,
 	},
 
+	{
+		"elixir-tools/elixir-tools.nvim",
+		version = "*",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			require("elixir").setup({
+				nextls = { enable = true },
+				credo = { enable = false },
+				elixirls = { enable = false },
+			})
+		end,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+	},
+
 	{ -- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
