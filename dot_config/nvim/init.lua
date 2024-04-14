@@ -750,7 +750,16 @@ require("lazy").setup({
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("elixir").setup({
-				nextls = { enable = true },
+				nextls = {
+					enable = true,
+					init_options = {
+						experimental = {
+							completions = {
+								enable = true,
+							},
+						},
+					},
+				},
 				credo = { enable = false },
 				elixirls = { enable = false },
 			})
