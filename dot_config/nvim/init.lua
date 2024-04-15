@@ -701,11 +701,6 @@ require("lazy").setup({
 		opts = { signs = false },
 	},
 
-	{
-		"folke/zen-mode.nvim",
-		opts = {},
-	},
-
 	{ -- Collection of various small independent plugins/modules
 		"echasnovski/mini.nvim",
 		config = function()
@@ -742,31 +737,6 @@ require("lazy").setup({
 			-- ... and there is more!
 			--  Check out: https://github.com/echasnovski/mini.nvim
 		end,
-	},
-
-	{
-		"elixir-tools/elixir-tools.nvim",
-		version = "*",
-		event = { "BufReadPre", "BufNewFile" },
-		config = function()
-			require("elixir").setup({
-				nextls = {
-					enable = true,
-					init_options = {
-						experimental = {
-							completions = {
-								enable = true,
-							},
-						},
-					},
-				},
-				credo = { enable = false },
-				elixirls = { enable = false },
-			})
-		end,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
 	},
 
 	{ -- Highlight, edit, and navigate code
@@ -818,7 +788,7 @@ require("lazy").setup({
 	--
 	--  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
 	--    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-	-- { import = 'custom.plugins' },
+	{ import = "custom.plugins" },
 }, {
 	ui = {
 		-- If you are using a Nerd Font: set icons to an empty table which will use the
