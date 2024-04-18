@@ -1,6 +1,7 @@
 set -g fish_greeting
 #set -x ASDF_DATA_DIR ~/.asdf
 set -x EDITOR nvim
+set -x PLUG_EDITOR "vscode://file/__FILE__:__LINE__"
 
 fish_config theme choose "Rosé Pine"
 
