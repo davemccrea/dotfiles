@@ -773,6 +773,9 @@ require("lazy").setup({
 	{
 		"stevearc/oil.nvim",
 		opts = {},
+		config = function()
+			require("oil").setup()
+		end,
 		-- Optional dependencies
 		dependencies = { "echasnovski/mini.icons" },
 		-- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
