@@ -11,5 +11,6 @@ require("lazy").setup({
 	spec = {
 		{ import = "david.plugins.core", enabled = true },
 		{ import = "david.plugins.harpoon", enabled = true },
+		{ import = "david.plugins.elixir-tools", enabled = true },
 	},
 })
