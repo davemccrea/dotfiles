@@ -7,6 +7,9 @@ return {
 
 		elixir.setup({
 			nextls = { enable = true },
+			elixirls = {
+				enable = false,
+			},
 		})
 	end,
 	dependencies = {
