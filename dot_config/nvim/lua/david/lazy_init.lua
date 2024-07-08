@@ -10,6 +10,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	spec = {
 		{ import = "david.plugins.core", enabled = true },
-		{ import = "david.plugins.oil", enabled = true },
+		{ import = "david.plugins.harpoon", enabled = true },
 	},
 })
