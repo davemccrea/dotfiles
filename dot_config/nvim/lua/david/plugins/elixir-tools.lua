@@ -6,9 +6,18 @@ return {
 		local elixir = require("elixir")
 
 		elixir.setup({
-			nextls = { enable = true },
-			elixirls = {
-				enable = false,
+			nextls = {
+				enable = true,
+				init_options = {
+					experimental = {
+						completions = {
+							enable = false,
+						},
+					},
+				},
+				on_attach = function(client, bufnr)
+					-- custom keybinds
+				end,
 			},
 		})
 	end,
