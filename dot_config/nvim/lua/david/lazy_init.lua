@@ -9,7 +9,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
+		-- Always enabled
 		{ import = "david.plugins.core", enabled = true },
+
+		-- Turn on and off as required or debugging
 		{ import = "david.plugins.harpoon", enabled = true },
+		{ import = "david.plugins.elixir-tools", enabled = true },
 	},
 })
