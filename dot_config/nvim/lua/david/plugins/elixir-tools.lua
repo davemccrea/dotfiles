@@ -15,9 +15,6 @@ return {
 						},
 					},
 				},
-				on_attach = function(client, bufnr)
-					-- custom keybinds
-				end,
 			},
 		})
 	end,
