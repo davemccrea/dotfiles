@@ -11,6 +11,7 @@ require("lazy").setup({
 	spec = {
 		{ import = "david.plugins.core", enabled = true },
 		{ import = "david.plugins.bufsurf", enabled = true },
+		-- { import = "david.plugins.auto-session", enabled = true },
 		{ import = "david.plugins.elixir-tools", enabled = true },
 	},
 })
