@@ -4,6 +4,7 @@ set -x EDITOR nvim
 set -x PLUG_EDITOR "vscode://file/__FILE__:__LINE__"
 
 theme_gruvbox dark hard
+#fish_config theme choose "Rosé Pine Moon"
 
 fish_add_path ~/.composer/vendor/bin
 fish_add_path ~/.local/bin
