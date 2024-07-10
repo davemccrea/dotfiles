@@ -3,7 +3,7 @@ set -g fish_greeting
 set -x EDITOR nvim
 set -x PLUG_EDITOR "vscode://file/__FILE__:__LINE__"
 
-fish_config theme choose "Rosé Pine"
+theme_gruvbox dark hard
 
 fish_add_path ~/.composer/vendor/bin
 fish_add_path ~/.local/bin
