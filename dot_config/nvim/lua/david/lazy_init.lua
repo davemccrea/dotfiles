@@ -10,10 +10,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	spec = {
 		{ import = "david.plugins.core", enabled = true },
-		-- { import = "david.plugins.elixir-tools", enabled = true },
 		{ import = "david.plugins.bufsurf", enabled = true },
 		{ import = "david.plugins.trouble", enabled = true },
-		-- { import = "david.plugins.auto-session", enabled = true },
-		-- { import = "david.plugins.harpoon", enabled = true},
+		{ import = "david.plugins.lazygit", enabled = true },
 	},
 })
