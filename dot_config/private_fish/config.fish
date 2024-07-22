@@ -6,7 +6,7 @@ set -x _ZO_DATA_DIR /var/home/david/.local/share
 
 alias vi="nvim"
 alias lg="lazygit"
-alias ls="exa"
+alias ls="eza"
 alias tm="tmux new-session -A -s main"
 alias cdd="cd /var/home/david"
 alias code="code --enable-features=UseOzonePlatform --ozone-platform=wayland"
