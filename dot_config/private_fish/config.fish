@@ -1,5 +1,4 @@
 set -g fish_greeting
-#set -x ASDF_DATA_DIR ~/.asdf
 set -x EDITOR nvim
 set -x PLUG_EDITOR "vscode://file/__FILE__:__LINE__"
 set -x _ZO_DATA_DIR /var/home/david/.local/share
