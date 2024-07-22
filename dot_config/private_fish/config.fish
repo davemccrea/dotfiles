@@ -5,10 +5,10 @@ set -x PLUG_EDITOR "vscode://file/__FILE__:__LINE__"
 set -x _ZO_DATA_DIR /var/home/david/.local/share
 
 alias vi="nvim"
-alias g="lazygit"
+alias lg="lazygit"
+alias ls="exa"
 alias cdd="cd /var/home/david"
 alias code="code --enable-features=UseOzonePlatform --ozone-platform=wayland"
-alias drive="cd '/var/home/david/Insync/davidmccrea@gmail.com/Google Drive/'"
 
 theme_gruvbox dark hard
 #fish_config theme choose "Rosé Pine Moon"
