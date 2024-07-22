@@ -4,5 +4,5 @@ function cd --argument dir
     else
         builtin cd $dir
     end
-    ls -lh
+    eza --icons=auto
 end
