@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$( (find /var/home/david/code -mindepth 1 -maxdepth 1 -type d; find /var/home/david/distrobox/dterm/.local/share/chezmoi/ -maxdepth 0 -type d) | fzf )
+    selected=$( (find /var/home/david/code -mindepth 1 -maxdepth 1 -type d; find /var/home/david/distrobox/dterm/.local/share/chezmoi/ -maxdepth 0 -type d) | fzf --tmux center )
 fi
 
 if [[ -z $selected ]]; then

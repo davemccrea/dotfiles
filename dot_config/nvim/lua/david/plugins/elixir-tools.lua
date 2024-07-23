@@ -7,10 +7,10 @@ return {
 
 		elixir.setup({
 			elixirls = {
-				enable = false,
+				enable = true,
 			},
 			nextls = {
-				enable = true,
+				enable = false,
 				init_options = {
 					experimental = {
 						completions = {
