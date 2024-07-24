@@ -26,3 +26,7 @@ unset rc
 
 . "$HOME/.asdf/asdf.sh"
 
+. "$HOME/.cargo/env"
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash)"
