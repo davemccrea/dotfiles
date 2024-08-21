@@ -1,3 +1,3 @@
 function tk
-tmux kill-server
+    tmux kill-server
 end
