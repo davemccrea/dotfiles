@@ -6,12 +6,11 @@ set -x _ZO_DATA_DIR /var/home/david/.local/share
 alias vi="nvim"
 alias lg="lazygit"
 alias ls="eza --icons=auto"
-# NOTE: alias tm moved to bashrc
-#alias tm="tmux new-session -A -s main"
+alias tm="tmux new-session -A -s main"
 alias cdd="cd /var/home/david"
 alias code="code --enable-features=UseOzonePlatform --ozone-platform=wayland"
 
-theme_gruvbox dark hard
+#theme_gruvbox dark medium
 #fish_config theme choose "Rosé Pine Moon"
 fish_add_path ~/.composer/vendor/bin
 fish_add_path ~/.local/bin

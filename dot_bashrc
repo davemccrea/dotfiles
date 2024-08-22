@@ -26,5 +26,3 @@ unset rc
 
 . "$HOME/.asdf/asdf.sh"
 . "$HOME/.cargo/env"
-
-alias tm="tmux new-session -A -s main"
