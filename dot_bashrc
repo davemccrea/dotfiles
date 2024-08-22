@@ -29,8 +29,3 @@ unset rc
 
 alias tm="tmux new-session -A -s main"
 
-[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-eval "$(atuin init bash)"
-source ~/.local/share/blesh/ble.sh
-echo 'eval "$(atuin init bash)"' >> ~/.bashrc
-
