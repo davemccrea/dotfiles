@@ -5,7 +5,7 @@ set -x _ZO_DATA_DIR /var/home/david/.local/share
 
 alias vi="nvim"
 alias lg="lazygit"
-# alias ls="eza --icons=auto"
+alias ls="eza"
 alias cdd="cd /var/home/david"
 
 #theme_gruvbox dark medium
