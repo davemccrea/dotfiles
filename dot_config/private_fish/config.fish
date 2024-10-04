@@ -12,7 +12,6 @@ alias vi="nvim"
 alias lg="lazygit"
 alias ls="eza"
 alias cdd="cd /var/home/david"
-alias kamal="docker run -it --rm -v '$PWD:/workdir' -v '$SSH_AUTH_SOCK:/ssh-agent' -v /var/run/docker.sock:/var/run/docker.sock -e 'SSH_AUTH_SOCK=/ssh-agent' ghcr.io/basecamp/kamal:latest"
 
 #theme_gruvbox dark medium
 #fish_config theme choose "Rosé Pine Moon"
