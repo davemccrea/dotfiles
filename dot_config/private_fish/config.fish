@@ -25,6 +25,4 @@ fish_add_path /opt/nvim-linux64/bin
 fish_add_path ~/bin
 
 source ~/.asdf/asdf.fish
-source ~/.cargo/env.fish
-
-# starship init fish | source
+# source ~/.cargo/env.fish
