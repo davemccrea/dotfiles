@@ -25,7 +25,7 @@ fi
 unset rc
 
 . "$HOME/.asdf/asdf.sh"
-#. "$HOME/.cargo/env"
+. "$HOME/.cargo/env"
 
-alias tm="tmux new-session -A -s main"
-
+# Add nvim to path
+export PATH="$PATH:/opt/nvim-linux64/bin"
