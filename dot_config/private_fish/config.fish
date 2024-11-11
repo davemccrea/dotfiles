@@ -15,7 +15,6 @@ alias cdd="cd /var/home/david"
 
 #theme_gruvbox dark medium
 #fish_config theme choose "Rosé Pine Moon"
-fish_add_path ~/.composer/vendor/bin
 fish_add_path ~/.local/bin
 fish_add_path ~/go/bin
 fish_add_path /usr/local/go/bin
