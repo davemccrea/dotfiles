@@ -29,3 +29,5 @@ unset rc
 
 # Add nvim to path
 export PATH="$PATH:/opt/nvim-linux64/bin"
+
+alias tm="tmux new-session -A -s main"
