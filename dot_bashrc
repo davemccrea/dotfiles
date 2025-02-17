@@ -24,10 +24,4 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
-. "$HOME/.asdf/asdf.sh"
-. "$HOME/.cargo/env"
-
-# Add nvim to path
-export PATH="$PATH:/opt/nvim-linux64/bin"
-
 alias tm="tmux new-session -A -s main"
