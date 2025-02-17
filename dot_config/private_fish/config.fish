@@ -1,7 +1,8 @@
 if status is-interactive
+	# zoxide "z" is a smarter cd command
 	zoxide init fish | source
-	# NOTE: disabled atuin because of weird performance issue
-	# atuin init fish --disable-up-arrow | source
+	# atuin stores shell history in a sqlite database
+	atuin init fish --disable-up-arrow | source
 end
 
 set -g fish_greeting
@@ -22,6 +23,3 @@ fish_add_path ~/.cargo/bin
 fish_add_path ~/.cache/rebar3/bin
 fish_add_path /opt/nvim-linux64/bin
 fish_add_path ~/bin
-
-source ~/.asdf/asdf.fish
-source ~/.cargo/env.fish
