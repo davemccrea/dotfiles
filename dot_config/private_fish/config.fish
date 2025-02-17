@@ -3,6 +3,8 @@ if status is-interactive
 	zoxide init fish | source
 	# atuin stores shell history in a sqlite database
 	atuin init fish --disable-up-arrow | source
+	# starship is a prompt
+	starship init fish | source
 end
 
 set -g fish_greeting
