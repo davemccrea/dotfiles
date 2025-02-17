@@ -2,7 +2,7 @@ if status is-interactive
 	# zoxide "z" is a smarter cd command
 	zoxide init fish | source
 	# atuin stores shell history in a sqlite database
-	atuin init fish --disable-up-arrow | source
+	atuin init fish | source
 	# starship is a prompt
 	starship init fish | source
 end
