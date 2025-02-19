@@ -4,7 +4,7 @@ if status is-interactive
 	# atuin stores shell history in a sqlite database
 	atuin init fish | source
 	# starship is a prompt
-	# starship init fish | source
+	starship init fish | source
 end
 
 set -g fish_greeting
