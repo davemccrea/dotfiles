@@ -26,3 +26,4 @@ fish_add_path ~/.cache/rebar3/bin
 fish_add_path /opt/nvim-linux64/bin
 fish_add_path ~/bin
 fish_add_path ~/.mix/escripts
+fish_add_path ~/.local/bin/elixir-ls
