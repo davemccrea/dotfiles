@@ -1,14 +1,8 @@
-theme = "rose_pine"
+theme = "base16_transparent"
 
 [editor]
 line-number = "relative"
-scrolloff = 999
-mouse = false
 
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
-select = "underline"
-
-[keys.normal]
-"esc" = ["keep_primary_selection", "collapse_selection"]
