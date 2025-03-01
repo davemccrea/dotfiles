@@ -1,11 +1,6 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
--- Map Esc to perform the same function as Ctrl+C
-vim.api.nvim_set_keymap("i", "<Esc>", "<C-c>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Esc>", "<C-c>", { noremap = true })
-vim.api.nvim_set_keymap("v", "<Esc>", "<C-c>", { noremap = true })
-
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
