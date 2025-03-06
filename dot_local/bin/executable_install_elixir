@@ -1,0 +1,9 @@
+#!/bin/bash
+
+mkdir /var/home/david/distrobox/dterm/.local/bin/elixir-ls
+cd /var/home/david/distrobox/dterm/.local/bin/elixir-ls
+curl -fLO https://github.com/elixir-lsp/elixir-ls/releases/download/v0.26.4/elixir-ls-v0.26.4.zip
+unzip elixir-ls-v0.26.4.zip -d .
+chmod +x language_server.sh
+rm -rf elixir-ls-v0.26.4.zip
+mv language_server.sh elixir-ls
