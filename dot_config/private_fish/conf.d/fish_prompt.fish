@@ -1,14 +1,10 @@
 function fish_prompt
-    # Save the status from the last command
     set -l last_status $status
 
-    # Use theme colors instead of hard-coded colors
     set -l normal (set_color normal)
 
-    # Show only hostname
     echo -n (hostname)' '
 
-    # Display current directory
     echo -n (set_color $fish_color_cwd)(prompt_pwd)$normal
 
     # Show git status if we're in a git repository
@@ -26,12 +22,10 @@ function fish_prompt
         end
     end
 
-    # Add a space
     echo -n " "
 
-    # Show dollar sign and return status
     if test $last_status -eq 0
-        echo -n '$ '
+        echo -n '❯ '
     else
         echo -n (set_color $fish_color_error)'$ '$normal
     end
