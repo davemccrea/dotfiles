@@ -25,5 +25,3 @@ fi
 unset rc
 
 alias tm="tmux new-session -A -s main"
-
-PATH=$PATH:~/.local/bin/elixir-ls
