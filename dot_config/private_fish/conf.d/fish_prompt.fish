@@ -25,7 +25,7 @@ function fish_prompt
     echo -n " "
 
     if test $last_status -eq 0
-        echo -n '❯ '
+        echo -n '❱ '
     else
         echo -n (set_color $fish_color_error)'$ '$normal
     end
