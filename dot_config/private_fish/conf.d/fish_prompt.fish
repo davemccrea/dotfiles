@@ -3,7 +3,7 @@ function fish_prompt
 
     set -l normal (set_color normal)
 
-    echo -n (hostname)'📦 '
+    echo -n '📦 '[(hostname)]' '
 
     echo -n (set_color $fish_color_cwd)(prompt_pwd)$normal
 
