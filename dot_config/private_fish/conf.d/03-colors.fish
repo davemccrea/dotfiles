@@ -1,3 +1,3 @@
 if status is-interactive
-    fish_config theme save "Catppuccin Mocha"
+    set -g theme_name "Catppuccin Mocha"
 end
