@@ -6,7 +6,7 @@ return {
 		config = function()
 			vim.cmd.colorscheme("catppuccin")
 			require("catppuccin").setup({
-				transparent_background = false,
+				transparent_background = true,
 			})
 		end,
 	},
