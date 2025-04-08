@@ -1,6 +1,8 @@
 if status is-interactive
+    {{- if eq .chezmoi.os "linux" }}
     source "$HOME/.cargo/env.fish"
     source "$HOME/.atuin/bin/env.fish"
+    {{- end }}
     zoxide init fish | source
     atuin init fish | source
 end
