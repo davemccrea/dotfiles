@@ -1,4 +1,7 @@
 if status is-interactive
+    {{- if eq .chezmoi.os "darwin" }}
+    /opt/homebrew/bin/brew shellenv | source
+    {{- end }}
     {{- if eq .chezmoi.os "linux" }}
     source "$HOME/.cargo/env.fish"
     source "$HOME/.atuin/bin/env.fish"
