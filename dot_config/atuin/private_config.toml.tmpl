@@ -1,4 +1,6 @@
-
-
+{{ if ne .chezmoi.os "darwin" }}
+db_path = "~/.local/share/atuin/history.db"
+{{ end }}
+{{ if ne .chezmoi.os "linux" }}
 db_path = "/var/home/david/.history.db"
-
+{{ end }}
