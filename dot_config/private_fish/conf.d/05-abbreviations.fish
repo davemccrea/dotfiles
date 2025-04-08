@@ -1,8 +1,5 @@
 if status is-interactive
-    abbr -a g "git"
-    abbr -a gc "git commit"
-    abbr -a gco "git checkout"
-    abbr -a gs "git status"
+    {{- if eq .chezmoi.os "darwin" }}
     abbr -a cdd "cd /var/home/david"
-    abbr -a dc "docker compose"
+    {{- end }}
 end
