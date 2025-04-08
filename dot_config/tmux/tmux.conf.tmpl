@@ -1,14 +1,19 @@
 if "test ! -d ~/.config/tmux/plugins/tpm" \
    "run 'git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm && ~/.config/tmux/plugins/tpm/bin/install_plugins'"
 
+{{- if eq .chezmoi.os "linux" }}
 set -g default-command /usr/bin/fish
+{{- end }}
+{{- if eq .chezmoi.os "darwin" }}
+set -g default-command /opt/homebrew/bin/fish
+{{- end }}
 
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-yank'
 
-set -g @catppuccin_flavor 'mocha'
+set -g @catppuccin_flavor 'macchiato'
 run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 
 set -g default-terminal "tmux-256color"
