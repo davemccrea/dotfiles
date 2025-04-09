@@ -3,7 +3,12 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
+    {{- if eq .chezmoi.os "linux" }}
     selected=$( (find /var/home/david/code -mindepth 1 -maxdepth 2 -type d; find /var/home/david/distrobox/dterm/.local/share/chezmoi/ -maxdepth 0 -type d) | fzf --tmux center )
+    {{- end }}
+    {{- if eq .chezmoi.os "darwin" }}
+    selected=$( (find /var/home/david/code -mindepth 1 -maxdepth 2 -type d; find /Users/david/.local/share/chezmoi/ -maxdepth 0 -type d) | fzf --tmux center )
+    {{- end }}
 fi
 
 if [[ -z $selected ]]; then
