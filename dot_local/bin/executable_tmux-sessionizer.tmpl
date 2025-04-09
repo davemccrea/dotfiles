@@ -7,7 +7,7 @@ else
     selected=$( (find /var/home/david/code -mindepth 1 -maxdepth 2 -type d; find /var/home/david/distrobox/dterm/.local/share/chezmoi/ -maxdepth 0 -type d) | fzf --tmux center )
     {{- end }}
     {{- if eq .chezmoi.os "darwin" }}
-    selected=$( (find /var/home/david/code -mindepth 1 -maxdepth 2 -type d; find /Users/david/.local/share/chezmoi/ -maxdepth 0 -type d) | fzf --tmux center )
+    selected=$( (find /Users/david/code -mindepth 1 -maxdepth 2 -type d; find /Users/david/.local/share/chezmoi/ -maxdepth 0 -type d) | fzf --tmux center )
     {{- end }}
 fi
 
