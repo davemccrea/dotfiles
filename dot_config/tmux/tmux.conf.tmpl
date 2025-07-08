@@ -35,11 +35,17 @@ unbind C-b
 set-option -g prefix C-a
 bind-key C-a send-prefix
 
+{{- if eq .chezmoi.os "linux" }}
 # switch between windows
 bind-key -n M-h previous-window
 bind-key -n C-PgUp previous-window
 bind-key -n M-l next-window
 bind-key -n C-PgDn next-window
+{{- end }}
+{{- if eq .chezmoi.os "darwin" }}
+bind-key -n M-Cmd-Left previous-window
+bind-key -n M-Cmd-Right next-window
+{{- end }}
 
 # use vim-like keys for splits and windows
 bind-key v split-window -h
