@@ -1,8 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Requires: exiftool
+# Usage: ./sort-photos.sh /path/to/source [more paths...]
 
 exiftool -r -P \
-	'-FileName<$CreateDate/${CreateDate#;DateFmt("%Y-%m-%d_%H%M%S")}%-c.%e' \
-	'-FileName<$DateTimeOriginal/${DateTimeOriginal#;DateFmt("%Y-%m-%d_%H%M%S")}%-c.%e' \
-	'-FileName<$CreateDate/${CreateDate#;DateFmt("%Y-%m-%d_%H%M%S")}_${model}%-c.%e' \
-	'-FileName<$DateTimeOriginal/${DateTimeOriginal#;DateFmt("%Y-%m-%d_%H%M%S")}_${model}%-c.%e' \
-	-d '%Y/%m' $1
+  -api filenameFormat="%f" \
+  '-FileName<$CreateDate/${CreateDate#;DateFmt("%Y-%m-%d_%H%M%S")}%-c.%e' \
+  '-FileName<$DateTimeOriginal/${DateTimeOriginal#;DateFmt("%Y-%m-%d_%H%M%S")}%-c.%e' \
+  '-FileName<$CreateDate/${CreateDate#;DateFmt("%Y-%m-%d_%H%M%S")}_${model}%-c.%e' \
+  '-FileName<$DateTimeOriginal/${DateTimeOriginal#;DateFmt("%Y-%m-%d_%H%M%S")}_${model}%-c.%e' \
+  -if '$Filename !~ m{^\._}' -if '$Filename !~ m{^\.}' \
+  -d '%Y/%m' "$@"
