@@ -1,5 +1,4 @@
 if status is-interactive
-    {{- if eq .chezmoi.os "darwin" }}
     /opt/homebrew/bin/brew shellenv | source
     # ASDF configuration code
     if test -z $ASDF_DATA_DIR
@@ -14,11 +13,6 @@ if status is-interactive
 	set -gx --prepend PATH $_asdf_shims
     end
     set --erase _asdf_shims
-    {{- end }}
-    {{- if eq .chezmoi.os "linux" }}
-    source "$HOME/.cargo/env.fish"
-    source "$HOME/.atuin/bin/env.fish"
-    {{- end }}
     zoxide init fish | source
     atuin init fish | source
 end

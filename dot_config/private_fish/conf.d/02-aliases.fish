@@ -2,7 +2,4 @@ if status is-interactive
     alias vi="nvim"
     alias lg="lazygit"
     alias tm="tmux new-session -A -s main"
-    {{- if eq .chezmoi.os "linux" }}
-    alias ls="lsd"
-    {{- end }}
 end
