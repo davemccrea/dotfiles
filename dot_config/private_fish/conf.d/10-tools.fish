@@ -13,6 +13,6 @@ if status is-interactive
 	set -gx --prepend PATH $_asdf_shims
     end
     set --erase _asdf_shims
-    #zoxide init fish | source
-    atuin init fish | source
+    zoxide init fish | source
+    #atuin init fish | source
 end
