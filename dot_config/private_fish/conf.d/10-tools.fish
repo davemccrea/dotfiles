@@ -14,6 +14,6 @@ if status is-interactive
     end
     set --erase _asdf_shims
     zoxide init fish | source
-    #atuin init fish | source
-    atuin init fish | sed "s/-k up/up/g" | source
+    atuin init fish | source
+    #atuin init fish | sed "s/-k up/up/g" | source
 end
