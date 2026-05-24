@@ -13,7 +13,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 100
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 500
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.list = true
@@ -27,7 +27,7 @@ vim.opt.termguicolors = true
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-vim.keymap.set("n", "<leader>q", "<cmd>bw<CR>", { desc = "[Q]uit buffer" })
+vim.keymap.set("n", "<leader>q", "<cmd>bd<CR>", { desc = "[Q]uit buffer" })
 vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "[W]rite buffer" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -36,7 +36,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
     vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable",
         "https://github.com/folke/lazy.nvim.git", lazypath })
 end
@@ -55,6 +55,18 @@ require("lazy").setup({
                 topdelete = { text = "‾" },
                 changedelete = { text = "~" },
             },
+            on_attach = function(bufnr)
+                local gs = require("gitsigns")
+                local map = function(keys, func, desc)
+                    vim.keymap.set("n", keys, func, { buffer = bufnr, desc = "Git: " .. desc })
+                end
+                map("]h", function() gs.nav_hunk("next") end, "Next [H]unk")
+                map("[h", function() gs.nav_hunk("prev") end, "Prev [H]unk")
+                map("<leader>gs", gs.stage_hunk, "[G]it [S]tage hunk")
+                map("<leader>gr", gs.reset_hunk, "[G]it [R]eset hunk")
+                map("<leader>gp", gs.preview_hunk, "[G]it [P]review hunk")
+                map("<leader>gb", function() gs.blame_line({ full = true }) end, "[G]it [B]lame line")
+            end,
         },
     },
 
@@ -68,6 +80,7 @@ require("lazy").setup({
                 { "<leader>d", group = "[D]ocument" },
                 { "<leader>r", group = "[R]ename" },
                 { "<leader>s", group = "[S]earch" },
+                { "<leader>g", group = "[G]it" },
                 { "<leader>t", group = "[T]oggle" },
             })
         end,
@@ -150,6 +163,8 @@ require("lazy").setup({
                     map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
                     map("K", vim.lsp.buf.hover, "Hover")
                     map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+                    map("<leader>e", vim.diagnostic.open_float, "Show [E]rror")
+                    map("<leader>ws", builtin.lsp_workspace_symbols, "[W]orkspace [S]ymbols")
 
                     local client = vim.lsp.get_client_by_id(event.data.client_id)
                     if client and client.server_capabilities.documentHighlightProvider then
@@ -172,10 +187,6 @@ require("lazy").setup({
                 require("cmp_nvim_lsp").default_capabilities())
 
             local servers = {
-                tailwindcss = {
-                    filetypes = { "html", "elixir", "heex" },
-                    init_options = { userLanguages = { elixir = "html-eex", heex = "html-eex" } },
-                },
                 lua_ls = {
                     settings = { Lua = { completion = { callSnippet = "Replace" } } },
                 },
@@ -202,7 +213,7 @@ require("lazy").setup({
             { "<leader>f", function() require("conform").format({ async = true, lsp_fallback = true }) end, mode = "", desc = "[F]ormat buffer" },
         },
         opts = {
-            notify_on_error = false,
+            notify_on_error = true,
             format_on_save = function(bufnr)
                 local disable_filetypes = { c = true, cpp = true }
                 return { timeout_ms = 500, lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype] }
