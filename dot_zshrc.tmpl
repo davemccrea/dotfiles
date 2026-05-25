@@ -11,7 +11,7 @@ fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 
 # --- Oh My Zsh -----------------------------------------------------------------
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="bureau"
+ZSH_THEME=""  # disabled — Starship handles the prompt
 plugins=(git mix)
 ZSH_DISABLE_COMPFIX=true  # skip insecure-dir audit on every startup
 
@@ -26,6 +26,7 @@ alias cl="claude"
 [ -f "$HOME/.atuin/bin/env" ] && . "$HOME/.atuin/bin/env"
 command -v atuin &>/dev/null && eval "$(atuin init zsh)"
 command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
+command -v starship &>/dev/null && eval "$(starship init zsh)"
 
 # cache swamp completions to avoid subprocess fork on every shell open
 if command -v swamp &>/dev/null; then
