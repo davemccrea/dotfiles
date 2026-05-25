@@ -111,8 +111,8 @@ alias lg="lazygit"
 alias vi="nvim"
 alias cl="claude"
 
-. "$HOME/.atuin/bin/env"
-eval "$(atuin init zsh)"
-eval "$(zoxide init zsh)"
+[ -f "$HOME/.atuin/bin/env" ] && . "$HOME/.atuin/bin/env"
+command -v atuin &>/dev/null && eval "$(atuin init zsh)"
+command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 
-source <(swamp completions zsh)
+command -v swamp &>/dev/null && source <(swamp completions zsh)
