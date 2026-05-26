@@ -21,6 +21,7 @@ source $ZSH/oh-my-zsh.sh
 alias lg="lazygit"
 alias vi="nvim"
 alias cl="claude"
+alias dot="cd ~/.local/share/chezmoi/"
 
 # --- Tools ---------------------------------------------------------------------
 [ -f "$HOME/.atuin/bin/env" ] && . "$HOME/.atuin/bin/env"
@@ -33,3 +34,5 @@ if command -v swamp &>/dev/null; then
   [[ ! -f $_swamp_comp ]] && swamp completions zsh >$_swamp_comp
   source "$_swamp_comp"
 fi
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
