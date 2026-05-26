@@ -3,7 +3,7 @@
 export COLORTERM=truecolor
 # Claude Code caps colors to 256 inside tmux; this bypasses that. https://github.com/anthropics/claude-code/issues/36785
 export CLAUDE_CODE_TMUX_TRUECOLOR=1
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:/usr/local/bin:$PATH
 
 # asdf shims and completions must precede oh-my-zsh
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
