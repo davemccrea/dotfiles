@@ -1,4 +1,5 @@
 # --- Environment ---------------------------------------------------------------
+[ -f ~/.secrets ] && source ~/.secrets
 [[ -z "$TMUX" ]] && export TERM=xterm-256color
 export COLORTERM=truecolor
 # Claude Code caps colors to 256 inside tmux; this bypasses that. https://github.com/anthropics/claude-code/issues/36785
@@ -21,6 +22,7 @@ source $ZSH/oh-my-zsh.sh
 alias lg="lazygit"
 alias vi="nvim"
 alias cl="claude"
+alias oc="opencode"
 alias dot="cd ~/.local/share/chezmoi/"
 
 # --- Tools ---------------------------------------------------------------------
