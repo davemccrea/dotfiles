@@ -3,23 +3,38 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$( (find {{ .chezmoi.homeDir }}/code -mindepth 1 -maxdepth 2 -type d; find {{ .chezmoi.homeDir }}/.local/share/chezmoi/ -maxdepth 0 -type d) | fzf --tmux center )
+    selected=$(
+        fd -H '^\.git$' "$HOME" --max-depth 6 \
+            --exclude Library --exclude .Trash \
+            --exclude .local --exclude .config --exclude .oh-my-zsh \
+            --exclude .asdf --exclude .codex --exclude .claude \
+            --exclude .cache --exclude .cargo --exclude .rustup \
+            --exclude node_modules \
+        | sed 's|/\.git/*$||' \
+        | { cat; echo "$HOME/.local/share/chezmoi"; } \
+        | sort -u \
+        | fzf --tmux center
+    )
 fi
 
 if [[ -z $selected ]]; then
     exit 0
 fi
 
-selected_name=$(basename "$selected" | tr . _)
+selected_name=$(basename "$selected" | tr '.:' '_')
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected
+    tmux new-session -s "$selected_name" -c "$selected"
     exit 0
 fi
 
-if ! tmux has-session -t=$selected_name 2> /dev/null; then
-    tmux new-session -ds $selected_name -c $selected
+if ! tmux has-session -t="$selected_name" 2> /dev/null; then
+    tmux new-session -ds "$selected_name" -c "$selected"
 fi
 
-tmux switch-client -t $selected_name
+if [[ -z $TMUX ]]; then
+    tmux attach -t "$selected_name"
+else
+    tmux switch-client -t "$selected_name"
+fi
