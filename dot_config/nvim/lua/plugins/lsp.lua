@@ -52,16 +52,12 @@ return {
             },
         }
 
-        require("mason").setup()
+        vim.lsp.config("*", { capabilities = capabilities })
+        for server_name, server in pairs(servers) do
+            vim.lsp.config(server_name, server)
+        end
+
         require("mason-tool-installer").setup({ ensure_installed = vim.list_extend(vim.tbl_keys(servers), { "stylua" }) })
-        require("mason-lspconfig").setup({
-            handlers = {
-                function(server_name)
-                    local server = servers[server_name] or {}
-                    server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-                    require("lspconfig")[server_name].setup(server)
-                end,
-            },
-        })
+        require("mason-lspconfig").setup()
     end,
 }
