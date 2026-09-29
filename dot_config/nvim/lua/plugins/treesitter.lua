@@ -1,4 +1,4 @@
-local ensure_installed = { "bash", "c", "diff", "eex", "elixir", "heex", "html", "lua", "luadoc", "markdown", "markdown_inline", "vim", "vimdoc" }
+local ensure_installed = { "bash", "c", "css", "diff", "dockerfile", "eex", "elixir", "gitignore", "heex", "html", "javascript", "json", "lua", "luadoc", "markdown", "markdown_inline", "vim", "vimdoc", "yaml" }
 
 return {
     "nvim-treesitter/nvim-treesitter",
