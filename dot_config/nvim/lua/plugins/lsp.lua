@@ -47,6 +47,7 @@ return {
             require("cmp_nvim_lsp").default_capabilities())
 
         local servers = {
+            expert = {},
             lua_ls = {
                 settings = { Lua = { completion = { callSnippet = "Replace" } } },
             },
