@@ -4,7 +4,6 @@ vim.g.have_nerd_font = true
 
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.mouse = "a"
 vim.opt.showmode = false
 vim.opt.clipboard = "unnamedplus"
 vim.opt.breakindent = true
@@ -22,5 +21,3 @@ vim.opt.inccommand = "split"
 vim.opt.cursorline = true
 vim.opt.scrolloff = 999
 vim.opt.swapfile = false
-vim.opt.hlsearch = true
-vim.opt.termguicolors = true

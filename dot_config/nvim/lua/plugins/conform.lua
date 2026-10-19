@@ -15,8 +15,7 @@ return {
                 if format_after_write[filetype] then
                     return
                 end
-                local disable_filetypes = { c = true, cpp = true }
-                return { timeout_ms = 500, lsp_format = disable_filetypes[filetype] and "never" or "fallback" }
+                return { timeout_ms = 500, lsp_format = "fallback" }
             end,
             format_after_save = function(bufnr)
                 if format_after_write[vim.bo[bufnr].filetype] then

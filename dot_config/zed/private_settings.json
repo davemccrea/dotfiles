@@ -1,0 +1,74 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "cursor_blink": false,
+  "cli_default_open_behavior": "existing_window",
+  "project_panel": {
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "git_panel": {
+    "tree_view": false,
+    "dock": "left",
+  },
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)",
+  },
+  "diff_view_style": "unified",
+  "relative_line_numbers": "enabled",
+  "theme": {
+    "mode": "dark",
+    "light": "GitHub Light",
+    "dark": "GitHub Dark Dimmed",
+  },
+  "ui_font_size": 15,
+  "buffer_font_size": 14,
+  "buffer_line_height": "standard",
+  "buffer_font_family": "JetBrains Mono",
+  "vim_mode": true,
+  "terminal": {
+    "font_size": 14.0,
+    "font_family": "JetBrains Mono",
+    "shell": {
+      "program": "zsh",
+    },
+  },
+  "disable_ai": true,
+  "git": {
+    "disable_git": false,
+    "hunk_style": "staged_hollow",
+    "enable_diff": true,
+    "inline_blame": {
+      "show_commit_summary": false,
+      "enabled": true,
+    },
+  },
+  // "lsp": {
+  //   "tailwindcss-language-server": {
+  //     "settings": {
+  //       "classFunctions": ["cva", "cx"],
+  //       "experimental": {
+  //         "classRegex": ["[cls|className]\\s\\:\\=\\s\"([^\"]*)"],
+  //       },
+  //     },
+  //   },
+  // },
+}

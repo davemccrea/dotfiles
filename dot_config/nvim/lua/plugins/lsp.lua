@@ -24,7 +24,7 @@ return {
                 map("K", vim.lsp.buf.hover, "Hover")
                 map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
                 map("<leader>e", vim.diagnostic.open_float, "Show [E]rror")
-                map("<leader>ws", builtin.lsp_workspace_symbols, "[W]orkspace [S]ymbols")
+                map("<leader>sS", builtin.lsp_workspace_symbols, "[S]earch Workspace [S]ymbols")
 
                 local client = vim.lsp.get_client_by_id(event.data.client_id)
                 if client and client.server_capabilities.documentHighlightProvider then
@@ -36,7 +36,7 @@ return {
                         callback = function(e) vim.lsp.buf.clear_references(); vim.api.nvim_clear_autocmds({ group = "lsp-highlight", buffer = e.buf }) end,
                     })
                 end
-                if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
+                if client and client.server_capabilities.inlayHintProvider then
                     map("<leader>th", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, "[T]oggle Inlay [H]ints")
                 end
             end,

@@ -1,10 +1,10 @@
 # --- Environment ---------------------------------------------------------------
 [ -f ~/.secrets ] && source ~/.secrets
-[[ -z "$TMUX" ]] && export TERM=xterm-256color
 export COLORTERM=truecolor
 # Claude Code caps colors to 256 inside tmux; this bypasses that. https://github.com/anthropics/claude-code/issues/36785
 export CLAUDE_CODE_TMUX_TRUECOLOR=1
-export PATH=$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:/usr/local/bin:$PATH
+typeset -U path
+export PATH=$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH
 export PATH="$HOME/dev/llama.cpp/build/bin:$PATH"
 
 # asdf shims and completions must precede oh-my-zsh
@@ -26,16 +26,16 @@ alias vi="nvim"
 alias cl="claude"
 alias oc="opencode"
 alias dot="cd ~/.local/share/chezmoi/"
+alias tm="tmux new-session -A -s main"
 
 # --- Tools ---------------------------------------------------------------------
-[ -f "$HOME/.atuin/bin/env" ] && . "$HOME/.atuin/bin/env"
 command -v atuin &>/dev/null && eval "$(atuin init zsh)"
 command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 
 # cache swamp completions to avoid subprocess fork on every shell open
 if command -v swamp &>/dev/null; then
   _swamp_comp="${ZDOTDIR:-$HOME}/.zsh_swamp_completions"
-  [[ ! -f $_swamp_comp ]] && swamp completions zsh >$_swamp_comp
+  [[ ! -f $_swamp_comp || $_swamp_comp -ot $(command -v swamp) ]] && swamp completions zsh >$_swamp_comp
   source "$_swamp_comp"
 fi
 
