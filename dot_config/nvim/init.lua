@@ -9,4 +9,8 @@ if not vim.uv.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins", { rocks = { enabled = false } })
+require("lazy").setup("plugins", {
+    rocks = { enabled = false },
+    -- write updates straight into the chezmoi source so the tracked lockfile never goes stale
+    lockfile = vim.fn.expand("~/.local/share/chezmoi/dot_config/nvim/lazy-lock.json"),
+})

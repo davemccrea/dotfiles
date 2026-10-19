@@ -10,3 +10,13 @@
 	rebase = true
 [rebase]
 	autoStash = true
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
+[fetch]
+	prune = true
+[diff]
+	algorithm = histogram
+[rerere]
+	enabled = true
