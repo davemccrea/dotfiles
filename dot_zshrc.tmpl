@@ -20,14 +20,6 @@ ZSH_DISABLE_COMPFIX=true  # skip insecure-dir audit on every startup
 
 source $ZSH/oh-my-zsh.sh
 
-# Per-machine hostname colour (256-colour codes; unlisted hosts keep the theme colour) + SSH tag
-() {
-  local -A colors=(services-vm 208)
-  local c=${colors[${HOST%%.*}]}
-  [[ -n $c ]] && PROMPT=${PROMPT/\%m/%F{$c}%m%f}
-  [[ -n $SSH_CONNECTION ]] && PROMPT=${PROMPT/╭─/╭─%K{238}%F{white} ssh %f%k }
-}
-
 # --- Aliases -------------------------------------------------------------------
 alias lg="lazygit"
 alias vi="nvim"
