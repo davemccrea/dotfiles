@@ -4,12 +4,11 @@ export COLORTERM=truecolor
 # Claude Code caps colors to 256 inside tmux; this bypasses that. https://github.com/anthropics/claude-code/issues/36785
 export CLAUDE_CODE_TMUX_TRUECOLOR=1
 typeset -U path
-export PATH=$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH
-export PATH="$HOME/dev/llama.cpp/build/bin:$PATH"
-
-# asdf shims and completions must precede oh-my-zsh
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+# ~/.local/bin wins over asdf shims; asdf shims and completions must precede oh-my-zsh
+path=($HOME/.local/bin ${ASDF_DATA_DIR:-$HOME/.asdf}/shims $HOME/dev/llama.cpp/build/bin $HOME/bin $HOME/.cargo/bin $path)
 fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+# must run before the `command -v atuin` check below
+[ -f "$HOME/.atuin/bin/env" ] && . "$HOME/.atuin/bin/env"
 
 # --- Oh My Zsh -----------------------------------------------------------------
 export ZSH="$HOME/.oh-my-zsh"
@@ -32,6 +31,7 @@ alias tm="tmux new-session -A -s main"
 # --- Tools ---------------------------------------------------------------------
 command -v atuin &>/dev/null && eval "$(atuin init zsh)"
 command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
+command -v wt &>/dev/null && eval "$(command wt config shell init zsh)"
 
 # cache swamp completions to avoid subprocess fork on every shell open
 if command -v swamp &>/dev/null; then
@@ -50,9 +50,3 @@ fi
   chezmoi update --no-tty </dev/null &>$stamp.log &!
 }
 
-if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
-
-# Pi
-export PATH="$HOME/.local/bin:$PATH"
-
-[ -f "$HOME/.atuin/bin/env" ] && . "$HOME/.atuin/bin/env"
