@@ -20,6 +20,15 @@ ZSH_DISABLE_COMPFIX=true  # skip insecure-dir audit on every startup
 
 source $ZSH/oh-my-zsh.sh
 
+# Per-machine hostname colour (stable hash of the short hostname) + SSH tag
+() {
+  local -a palette=(39 45 81 118 135 141 166 172 178 208 214 220 171 207 49 99)
+  local h=0 c
+  for c in ${(s::)HOST%%.*}; do (( h = (h * 31 + #c) % 65521 )); done
+  PROMPT=${PROMPT/\%m/%F{${palette[h % ${#palette} + 1]}}%m%f}
+  [[ -n $SSH_CONNECTION ]] && PROMPT=${PROMPT/╭─/╭─%K{238}%F{white} ssh %f%k }
+}
+
 # --- Aliases -------------------------------------------------------------------
 alias lg="lazygit"
 alias vi="nvim"
