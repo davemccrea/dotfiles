@@ -48,6 +48,16 @@ if command -v swamp &>/dev/null; then
   source "$_swamp_comp"
 fi
 
+# pull + apply dotfiles in the background, at most hourly; never prompts (log in the stamp's .log)
+() {
+  command -v chezmoi &>/dev/null || return
+  local stamp=${XDG_CACHE_HOME:-$HOME/.cache}/chezmoi-autoupdate
+  local -a fresh=( $stamp(N.mh-1) )
+  (( $#fresh )) && return
+  mkdir -p ${stamp:h} && touch $stamp
+  chezmoi update --no-tty </dev/null &>$stamp.log &!
+}
+
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
 
 # Pi
