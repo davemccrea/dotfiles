@@ -13,6 +13,7 @@
     "cmd-alt-[": "space.prev",
     "cmd-]": "agent.next",
     "cmd-[": "agent.prev",
+    "cmd-enter": "mod.open:next-waiting",
     "cmd-shift-l": "layout.switch",
     "cmd-n": "space.new",
     "cmd-p": "mod.open:quick-open",
