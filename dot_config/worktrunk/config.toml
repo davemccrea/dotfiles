@@ -1,5 +1,6 @@
 # Open each new worktree as a Herdr space once the project's pre-start setup
-# (.env, port, database) is done. Unnamed, so Herdr nests it under its repo.
+# (.env, port, database) is done, with the branch-changes review panel beside
+# its terminal. Unnamed, so Herdr nests it under its repo.
 # Skipped when the Herdr window isn't running, so wt never launches it.
 [[post-start]]
-herdr = "command -v herdr-app >/dev/null && herdr-app status >/dev/null 2>&1 && herdr-app do space.new --folder '{{ worktree_path }}' || true"
+herdr = "command -v herdr-app >/dev/null && herdr-app status >/dev/null 2>&1 && herdr-app do space.new --folder '{{ worktree_path }}' && herdr-app do pane.split '{\"direction\":\"right\",\"mod\":\"branch-changes\"}' || true"

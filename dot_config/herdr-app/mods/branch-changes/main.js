@@ -15,11 +15,14 @@ const key = () => JSON.stringify(location());
 // Reads write nothing under .git (no index refresh or lock, no fsmonitor cookie):
 // the folder watch would see it, and every refresh would start the next one.
 const READ = ["--no-optional-locks", "-c", "core.fsmonitor=false", "-c", "diff.autoRefreshIndex=false"];
-// Where this branch left the default branch, so "vs main" shows all the branch did,
-// committed or not. Local main, not origin's: wt merges land there first.
-async function forkPoint(git) {
+// The default branch, by its local name: wt merges land there before origin.
+async function defaultBranch(git) {
   const ref = await git(["symbolic-ref", "--short", "refs/remotes/origin/HEAD"]);
-  const branch = ref.code === 0 ? ref.stdout.trim().replace(/^[^/]+\//, "") : "main";
+  return ref.code === 0 ? ref.stdout.trim().replace(/^[^/]+\//, "") : "main";
+}
+// Where this branch left the default branch, so "vs main" shows all the branch did,
+// committed or not.
+async function forkPoint(git, branch) {
   const base = await git(["merge-base", branch, "HEAD"]);
   return base.code === 0 ? { branch, commit: base.stdout.trim() } : null;
 }
@@ -42,10 +45,10 @@ function diffRows(lines, lang) {
 }
 
 export default class BranchChanges extends View {
-  ctx() { return key() + (this.vsMain ? "|main" : ""); }
+  ctx() { return `${key()}|${this.vsMain ?? "auto"}`; }
 
   toggle(cx) {
-    this.vsMain = !this.vsMain;
+    this.vsMain = !this.showingMain;
     this.refresh(cx);
     cx.notify();
   }
@@ -108,8 +111,12 @@ export default class BranchChanges extends View {
         const status = await git(["status", "--porcelain=v1", "-z", "--no-renames", "--untracked-files=all"]);
         if (status.code !== 0) throw new Error(status.stderr);
         const head = await git(["rev-parse", "--verify", "HEAD"]);
-        const fork = this.vsMain && head.code === 0 ? await forkPoint(git) : null;
-        if (this.vsMain && !fork) throw new Error("No main branch to compare with");
+        const base = await defaultBranch(git);
+        const current = (await git(["branch", "--show-current"])).stdout.trim();
+        // Until toggled: a feature branch opens on all it did, the default branch on what's uncommitted.
+        const showMain = this.vsMain ?? current !== base;
+        const fork = showMain && head.code === 0 ? await forkPoint(git, base) : null;
+        if (showMain && !fork) throw new Error("No main branch to compare with");
         const against = fork ? fork.commit : "HEAD";
         const stats = {};
         const results = head.code === 0 ? [await git(["diff", against, "--numstat", "-z", "--no-renames"])] : [await git(["diff", "--cached", "--numstat", "-z", "--no-renames"]), await git(["diff", "--numstat", "-z", "--no-renames"])];
@@ -139,7 +146,7 @@ export default class BranchChanges extends View {
           files.push({ path, status: s, fresh, ...stat });
         }
         if (this.ctx() !== context) return;
-        this.root = root; this.on = on; this.hasHead = head.code === 0; this.against = against; this.baseName = fork?.branch ?? "main"; this.files = files; this.limited = entries.length > 1000; this.error = null;
+        this.root = root; this.on = on; this.hasHead = head.code === 0; this.against = against; this.baseName = base; this.showingMain = showMain; this.files = files; this.limited = entries.length > 1000; this.error = null;
         this.watch(root, cx);
         if (this.open && !files.some((f) => f.path === this.open)) { this.open = null; this.setLines([]); }
         // The first file's diff shows until you pick another.
@@ -227,8 +234,8 @@ export default class BranchChanges extends View {
       })
       .child(h_flex().h(42).flex_none().px(14).gap(8).items_center().border_b(1).border_color(t.border)
         .child(div().font_semibold().child("Changes"))
-        .child(div().id("changes-mode").px(6).py(1).rounded(4).bg(this.vsMain ? t.selected : t.raised).cursor_pointer().hover((s) => s.bg(t.hover)).text_size(10)
-          .on_click((_e, cx) => this.toggle(cx)).child(this.vsMain ? `vs ${this.baseName ?? "main"}` : "Uncommitted"))
+        .child(div().id("changes-mode").px(6).py(1).rounded(4).bg(this.showingMain ? t.selected : t.raised).cursor_pointer().hover((s) => s.bg(t.hover)).text_size(10)
+          .on_click((_e, cx) => this.toggle(cx)).child(this.showingMain ? `vs ${this.baseName ?? "main"}` : "Uncommitted"))
         .child(div().px(5).py(1).rounded(4).border_1().border_color(t.border).text_size(10).text_color(t.muted).child(`${this.files.length} files`))
         .child(div().flex_1()).child(div().text_size(11).text_color(t.ansi2).child(`+${add}`)).child(div().text_size(11).text_color(t.ansi1).child(`−${del}`)))
       .child(v_flex().id("changes-list").flex_none().h(Math.min(200, Math.max(44, this.files.length * 28 + 12))).overflow_y_scrollbar().p(6).border_b(1).border_color(t.border).children(this.files.map((f) => {
@@ -237,7 +244,7 @@ export default class BranchChanges extends View {
           .child(div().w(14).text_size(11).text_color(f.status === "A" ? t.ansi2 : f.status === "D" ? t.ansi1 : f.status === "U" ? t.ansi1 : t.blocked).child(f.status))
           .child(h_flex().flex_1().min_w(0).child(div().text_color(t.dim).truncate().child(parts.length ? parts.join("/") + "/" : "")).child(div().max_w(260).min_w(0).truncate().child(name)))
           .when(f.add > 0, (e) => e.child(div().text_size(11).text_color(t.ansi2).child(`+${f.add}`))).when(f.del > 0, (e) => e.child(div().text_size(11).text_color(t.ansi1).child(`−${f.del}`)));
-      })).when(!this.files.length, (e) => e.child(div().p(8).text_color(t.dim).child(this.error || (this.loading ? "Loading changes…" : this.root ? (this.vsMain ? `No changes since ${this.baseName}` : "No uncommitted changes") : "No folder")))))
+      })).when(!this.files.length, (e) => e.child(div().p(8).text_color(t.dim).child(this.error || (this.loading ? "Loading changes…" : this.root ? (this.showingMain ? `No changes since ${this.baseName}` : "No uncommitted changes") : "No folder")))))
       .when(this.limited, el => el.child(div().px(12).py(4).text_size(11).text_color(t.dim).child("Showing the first 1,000 changed files")))
       .child(div().flex_1().min_h(0).relative().font_family(settings().font_family ?? "JetBrains Mono").text_size(11)
         .child(div().id("changes-diff-x").size_full().overflow_x_scrollbar()
