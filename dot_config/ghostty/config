@@ -1,0 +1,16 @@
+font-family = JetBrains Mono
+font-size = 15
+
+theme = Catppuccin Mocha
+
+window-padding-x = 12
+
+# tmux: Option sends Alt so the M-1..9 / M-hjkl bindings work
+macos-option-as-alt = true
+mouse-hide-while-typing = true
+window-padding-color = extend
+
+cursor-style = block
+cursor-style-blink = false
+# shell integration otherwise switches to a bar cursor at the prompt
+shell-integration-features = no-cursor
